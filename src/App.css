@@ -1,0 +1,150 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  max-width: 71%;
+  margin: 0 auto;
+  border: 1px solid black;
+  background-color: rgb(241, 233, 233);
+}
+
+.nav {
+  display: flex;
+  min-height: 80px;
+  align-items: center;
+  text-align: center;
+  border-bottom: 2px solid #19cbac;
+}
+.nav li {
+  list-style-type: none;
+  padding: 0 40px 0 0;
+  z-index: 999;
+}
+
+.nav-one {
+  display: flex;
+  align-items: center;
+  flex-basis: 27.5%;
+  height: 80px;
+  font-size: 29px;
+  background: linear-gradient(121deg, #19cbac 320px, rgb(241, 233, 233) 20px);
+  padding: 0 0 0 75px;
+  color: white;
+}
+.nav-two {
+  display: flex;
+  flex-basis: 43%;
+  justify-content: space-between;
+  padding: 7px 0 0 13px;
+}
+.nav li * {
+  color: black;
+  font-weight: 300;
+}
+.active {
+  color: white;
+}
+.active::after {
+  background: #19cbac 10px;
+  content: "";
+  display: block;
+  position: absolute;
+  width: 80px;
+  height: 17px;
+  padding: 8px;
+  left: -16px;
+  top: -8px;
+  z-index: -1;
+  transform: skew(-32deg, 0deg);
+}
+
+.nav-list-container {
+  display: flex;
+  align-items: center;
+}
+.link {
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  height: 25px;
+  position: relative;
+}
+.link-two {
+  padding: 0 0 0 5px;
+}
+.link-three {
+  padding: 0 0 0 3px;
+}
+.link-four {
+  padding: 0 0 0 3px;
+}
+.link-five {
+  padding: 0 0 0 4px;
+}
+
+.activeClassName {
+  background-color: gray;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+}
+.page-one {
+  width: 31%;
+  height: 340px;
+  border: 1px solid black;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+  margin-top: auto;
+  border: 1px solid black;
+  height: 80px;
+}
+.footer > span {
+  display: flex;
+  height: 100%;
+  font-size: 14px;
+  justify-content: center;
+  align-items: center;
+}
+.one {
+  flex-basis: 20%;
+  border: 1px solid black;
+  height: 100%;
+  padding: 0 0 2px 35px;
+}
+.two {
+  flex-basis: 17%;
+  border: 1px solid black;
+  letter-spacing: 0.03rem;
+  padding: 0 0 3px 0;
+}
+.three {
+  flex-basis: 8%;
+  border: 1px solid black;
+  letter-spacing: 0.05rem;
+  padding: 0 0 2px 3px;
+}
+.four {
+  flex-basis: 10%;
+  border: 1px solid black;
+  padding: 0 0 2px 2px;
+  letter-spacing: 0.02rem;
+}
+.five {
+  flex-basis: 45%;
+  border: 1px solid black;
+  padding: 0 0 3px 319px;
+  letter-spacing: 0.02rem;
+}

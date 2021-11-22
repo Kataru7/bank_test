@@ -2,8 +2,12 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <div>
-      <h1>FOOTER</h1>
-    </div>
+    <>
+      <span className="one">© 2016 Городской сайт</span>
+      <span className="two">Пользовательское соглашение</span>
+      <span className="three">Инструкции</span>
+      <span className="four">Рекламодателям</span>
+      <span className="five">Сделано в Беларуси</span>
+    </>
   );
 }
