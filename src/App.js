@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route, NavLink } from "react-router-dom";
-import { Page1, Page2, Page3, Page4, Page5 } from "./Pages/index";
+import { Page1, Page2, Page3, Page4, Page5, MainForm } from "./Pages/index";
 import { Footer } from "./Pages/ElementsPages/index";
 import "./App.css";
 
@@ -46,10 +46,12 @@ export default function App() {
       <div className="content">
         <Routes>
           <Route path="/" element={<Page1 />} />
+          <Route path="/page1" element={<Page1 />} />
           <Route path="/page2" element={<Page2 />} />
           <Route path="/page3" element={<Page3 />} />
           <Route path="/page4" element={<Page4 />} />
           <Route path="/page5" element={<Page5 />} />
+          <Route path="/page4/registration" element={<MainForm />} />
         </Routes>
       </div>
 
