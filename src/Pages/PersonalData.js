@@ -1,102 +1,77 @@
 import React from "react";
-import { useForm } from "react-hook-form";
-import PhoneInput from "react-phone-number-input/react-hook-form-input";
+import "./PersonalData.css";
 
 export default function PersonalData() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    control,
-  } = useForm();
-
-  const onSubmit = (data) => console.log("Отправлено:", data);
-
   return (
-    <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <p>
-          Имя
-          <input {...register("firstName", { required: true })} />
-          {errors.name && <i>Обязательное поле</i>}
-        </p>
-        <p>
-          Фамилия:
-          <input {...register("lastName", { required: true })} />
-          {errors.name && <i>Обязательное поле</i>}
-        </p>
-        <p>
-          Отчество:
-          <input {...register("patronymic", { required: true })} />
-          {errors.name && <i>Обязательное поле</i>}
-        </p>
-        <p>
-          Дата рождения:
-          <input type="date" {...register("birthday", { required: true })} />
-        </p>
-        <p>
-          Пол:
-          <input
-            {...register("gender")}
-            value="male"
-            type="radio"
-            name="gender"
-            checked
-          />
+    <div className="personal-data-form">
+      <form className="data-form">
+        <div className="data-form-title">
+          Все поля обязательны для заполнения
+        </div>
+        <div className="form-input">
+          <label>Имя</label>
+          <input className="input" type="text" />
+        </div>
+        <div className="form-input">
+          <label>Фамилия:</label>
+          <input className="input" />
+        </div>
+        <div className="form-input">
+          <label>Отчество:</label>
+          <input className="input" />
+        </div>
+        <div className="form-input">
+          <label>Дата рождения:</label>
+          <input className="input" type="date" />
+        </div>
+        <div className="form-input">
+          <label>Пол:</label>
+          <input value="male" type="radio" name="gender" checked />
           <span>Муж</span>
-          <input
-            {...register("gender")}
-            value="female"
-            type="radio"
-            name="gender"
-          />
+          <input value="female" type="radio" name="gender" />
           <span>Жен</span>
-        </p>
-        <p>
-          Страна проживания:
-          <select {...register("country", { required: true })}>
+        </div>
+        <div className="form-input">
+          <label>Страна проживания:</label>
+          <select className="input">
             <option value="bel">Беларусь</option>
             <option value="rus">Россия</option>
             <option value="ukr">Украина</option>
           </select>
-        </p>
-        <p>
-          Адрес, почтовый индекс:
-          <input type="text" {...register("adress", { required: true })} />
-        </p>
-        <p>
-          Девичья фамилия матери:
-          <input type="text" {...register("mothersMadeName")} />
-        </p>
-        <p>
-          Кодовое слово в вашем банке:
-          <input type="text" {...register("bankPassWord")} />
-        </p>
-        <p>
-          Как вы узнали о нашем сайте:
+        </div>
+        <div className="form-input">
+          <label>Адрес, почтовый индекс:</label>
+          <input className="input" type="text" />
+        </div>
+        <div className="form-input">
+          <label>Девичья фамилия матери:</label>
+          <input className="input" type="text" />
+        </div>
+        <div className="form-input">
+          <label>Кодовое слово в вашем банке:</label>
+          <input className="input" type="text" />
+        </div>
+        <div className="form-input">
+          <label>Как вы узнали о нашем сайте:</label>
           <textarea id="story" name="story" rows="5" cols="30"></textarea>
-        </p>
-        <p>
-          Email друга: <input type="text" {...register("friendEmail")} />
-        </p>
-        <p>
-          Номер телефона своего парня:{" "}
-          <PhoneInput
-            name="phoneInput"
-            control={control}
-            rules={{ required: true }}
-          />
-        </p>
-        <p>
-          Какую сковороду предпочитаешь:{" "}
-          <select {...register("selectionPan")}>
+        </div>
+        <div className="form-input">
+          <label>Email друга:</label> <input type="text" />
+        </div>
+        <div className="form-input">
+          <label>Номер телефона своего парня:</label>
+          <input className="input" name="tel" />
+        </div>
+        <div className="form-input">
+          <label>Какую сковороду предпочитаешь:</label>
+          <select className="input">
             <option value="Tefal">Tefal</option>
             <option value="Rondel">Rondel</option>
             <option value="Bollire">Bollire</option>
             <option value="JARKO">JARKO</option>
           </select>
-        </p>
-        <p></p>
+        </div>
+        <div></div>
 
         <input type="submit" />
       </form>

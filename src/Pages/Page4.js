@@ -1,25 +1,55 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import { ButtonNext } from "./ElementsPages";
+import { useState } from "react";
+import { MainForm } from ".";
+import "./Page4.css";
 
 export default function Page4() {
+  let [val, setVal] = useState();
+  let [rend, setRend] = useState();
+
+  let changeVal = (event) => {
+    setVal(event.target.value);
+  };
+
+  let rendering = () => {
+    val === "person" ? setRend(true) : setRend(false);
+  };
+
   return (
-    <div>
-      <h3>Выберете способ регистрацци:</h3>
-      <ul>
-        <li>
-          <input type="radio" id="person" name="interest" value="person" />
-          <label for="person">Песональная</label>
-        </li>
-        <li>
-          <input type="radio" id="allList" name="interest" value="allList" />
-          <label for="allList">Регистрация пользователей списком</label>
-        </li>
-        <li></li>
-        <li>
-          <ButtonNext />
-        </li>
-      </ul>
+    <div className="main-form-container">
+      {rend ? (
+        <MainForm />
+      ) : (
+        <div>
+          <h3>Выберете способ регистрацци:</h3>
+          <ul>
+            <li>
+              <input
+                type="radio"
+                id="person"
+                name="interest"
+                value="person"
+                onChange={changeVal}
+              />
+              <label htmlFor="person">Песональная</label>
+            </li>
+            <li>
+              <input
+                type="radio"
+                id="allList"
+                name="interest"
+                value="allList"
+                onChange={changeVal}
+              />
+              <label htmlFor="allList">Регистрация пользователей списком</label>
+            </li>
+            <li></li>
+            <li>
+              <button onClick={rendering}>ok</button>
+            </li>
+          </ul>
+        </div>
+      )}
     </div>
   );
 }

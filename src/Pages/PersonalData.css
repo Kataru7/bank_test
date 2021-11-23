@@ -1,0 +1,29 @@
+.personal-data-form {
+  display: flex;
+}
+.personal-data-form > {
+  flex-direction: column;
+}
+.data-form {
+  padding-left: 53px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.form-input {
+  display: flex;
+  height: 50px;
+}
+.data-form-title {
+  display: flex;
+  height: 80px;
+  align-items: center;
+  background-color: cadetblue;
+}
+.input {
+  width: 410px;
+  height: 27px;
+}
+.data-form > div > label {
+  width: 270px;
+}
