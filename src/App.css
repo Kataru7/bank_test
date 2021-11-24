@@ -143,3 +143,15 @@ body {
   padding: 0 0 3px 319px;
   letter-spacing: 0.02rem;
 }
+.wrapper-registrations {
+  display: flex;
+  justify-content: space-between;
+}
+.wrapper-registrations {
+  flex-basis: 73.5%;
+  background-color: #fff;
+}
+.chat-container {
+  flex-basis: 25%;
+  background-color: #fff;
+}

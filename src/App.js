@@ -1,7 +1,8 @@
 import React from "react";
-import { Footer } from "./Pages/ElementsPages/index";
-import Page4 from "./Pages/Page4";
+import { Footer, Chat } from "./Pages/ElementsPages/index";
 import "./App.css";
+import { Switch, Route, NavLink } from "react-router-dom";
+import { CreditCardData, MainForm, Page4, PersonalData } from "./Pages";
 
 export default function App() {
   return (
@@ -10,16 +11,41 @@ export default function App() {
         <h1 className="nav-one">Городской сайт</h1>
         <div className="nav-two">
           <ul className="nav-list-container">
-            <li>Пункт 1</li>
-            <li>Пункт 2</li>
-            <li>Пункт 3</li>
-            <li>Пункт 4</li>
-            <li>Пункт 5</li>
+            <li>
+              <NavLink to="/registration">Пункт 1</NavLink>
+            </li>
+            <li>
+              <NavLink to="/registration">Пункт 2</NavLink>
+            </li>
+            <li>
+              <NavLink to="/registration">Пункт 3</NavLink>
+            </li>
+            <li>
+              <NavLink to="/registration">Пункт 4</NavLink>
+            </li>
+            <li>
+              <NavLink to="/registration">Пункт 5</NavLink>
+            </li>
           </ul>
         </div>
       </div>
-      <div className="content"></div>
-      <Page4 />
+      <Switch>
+        <Route exact path="/registration">
+          <Page4 />
+        </Route>
+        <div className="wrapper-registrations">
+          <div>
+            <MainForm />
+            <Route exact path="/registration/personal">
+              <PersonalData />
+            </Route>
+            <Route exact path="/registration/card">
+              <CreditCardData />
+            </Route>
+          </div>
+          <Chat />
+        </div>
+      </Switch>
 
       <div className="footer">
         <Footer />

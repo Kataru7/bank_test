@@ -1,12 +1,7 @@
-.form-container {
-  flex-basis: 73.5%;
-  background-color: #fff;
-}
 .form-header-conteiner {
   display: flex;
   height: 115px;
   align-items: center;
-  background-color: blueviolet;
 }
 .form-header {
   font-family: system-ui;
@@ -16,7 +11,6 @@
   letter-spacing: -0.05rem;
 }
 .form-steps {
-  background-color: burlywood;
   display: flex;
   height: 52px;
   align-items: center;
@@ -25,9 +19,4 @@
   font-family: system-ui;
   margin: 0 0 8px 53px;
   font-size: 19px;
-}
-
-.chat-container {
-  flex-basis: 25%;
-  background-color: #fff;
 }

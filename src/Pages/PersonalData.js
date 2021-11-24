@@ -1,80 +1,146 @@
 import React from "react";
+import { Formik, Form } from "formik";
 import "./PersonalData.css";
+import { Input, InputSelect } from "./ElementsPages/index";
+import * as yup from "yup";
+import { NavLink } from "react-router-dom";
 
-export default function PersonalData() {
+export default function PersonalDataF() {
+  // const validationSchema = yup.object().shape({
+  //   name: yup.string().typeError("Введите строку").required("Обязательна"),
+  // });
+  const genderSelect = [
+    { value: { gender: "Male", titleGender: "Муж" } },
+    { value: { gender: "Female", titleGender: "Жен" } },
+    { value: { gender: "Other", titleGender: "Другое" } },
+  ];
+  const footbalSelect = [
+    { value: { gender: "Barselona", titleGender: "Барселона" } },
+    { value: { gender: "Real-Madrid", titleGender: "Реал-Мадрид" } },
+    { value: { gender: "Marsel", titleGender: "Марсель" } },
+    { value: { gender: "Manchester", titleGender: "Манчестер" } },
+    { value: { gender: "Juventus", titleGender: "Ювентус" } },
+    { value: { gender: "Liverpul", titleGender: "Ливерпуль" } },
+  ];
+  const panSelect = [
+    { value: { gender: "Tefal", titleGender: "Tefal" } },
+    { value: { gender: "Rondel", titleGender: "Rondel" } },
+    { value: { gender: "Alesia", titleGender: "Алеся" } },
+  ];
+
   return (
-    <div className="personal-data-form">
-      <form className="data-form">
-        <div className="data-form-title">
-          Все поля обязательны для заполнения
-        </div>
-        <div className="form-input">
-          <label>Имя</label>
-          <input className="input" type="text" />
-        </div>
-        <div className="form-input">
-          <label>Фамилия:</label>
-          <input className="input" />
-        </div>
-        <div className="form-input">
-          <label>Отчество:</label>
-          <input className="input" />
-        </div>
-        <div className="form-input">
-          <label>Дата рождения:</label>
-          <input className="input" type="date" />
-        </div>
-        <div className="form-input">
-          <label>Пол:</label>
-          <input value="male" type="radio" name="gender" checked />
-          <span>Муж</span>
-          <input value="female" type="radio" name="gender" />
-          <span>Жен</span>
-        </div>
-        <div className="form-input">
-          <label>Страна проживания:</label>
-          <select className="input">
-            <option value="bel">Беларусь</option>
-            <option value="rus">Россия</option>
-            <option value="ukr">Украина</option>
-          </select>
-        </div>
-        <div className="form-input">
-          <label>Адрес, почтовый индекс:</label>
-          <input className="input" type="text" />
-        </div>
-        <div className="form-input">
-          <label>Девичья фамилия матери:</label>
-          <input className="input" type="text" />
-        </div>
-        <div className="form-input">
-          <label>Кодовое слово в вашем банке:</label>
-          <input className="input" type="text" />
-        </div>
-        <div className="form-input">
-          <label>Как вы узнали о нашем сайте:</label>
-          <textarea id="story" name="story" rows="5" cols="30"></textarea>
-        </div>
-        <div className="form-input">
-          <label>Email друга:</label> <input type="text" />
-        </div>
-        <div className="form-input">
-          <label>Номер телефона своего парня:</label>
-          <input className="input" name="tel" />
-        </div>
-        <div className="form-input">
-          <label>Какую сковороду предпочитаешь:</label>
-          <select className="input">
-            <option value="Tefal">Tefal</option>
-            <option value="Rondel">Rondel</option>
-            <option value="Bollire">Bollire</option>
-            <option value="JARKO">JARKO</option>
-          </select>
-        </div>
-        <div></div>
-
-        <input type="submit" />
-      </form>
+    <div>
+      <Formik
+        initialValues={{
+          name: "",
+          lastName: "",
+          patronymic: "",
+          birthday: "",
+          gender: "",
+          country: "",
+          adress: "",
+          motherMaidenName: "",
+          codeWord: "",
+          aboutUs: "",
+          friendEmail: "",
+          tel: "",
+          footbal: "",
+          pan: "",
+        }}
+        validateOnBlur
+        onSubmit={(data, { setSubmitting }) => {
+          setSubmitting(true);
+          console.log(data);
+          setSubmitting(false);
+        }}
+        // validationSchema={validationSchema}
+      >
+        {({ values, isSubmitting }) => (
+          <div className="personal-data-form">
+            <Form className="data-form">
+              <div className="data-form-title">
+                Все поля обязательны для заполнения
+              </div>
+              <Input type="text" name="name" label="Имя:" value={values.name} />
+              <Input
+                type="text"
+                name="lastName"
+                label="Фамилия:"
+                value={values.lastName}
+              />
+              <Input
+                type="text"
+                name="patronymic"
+                label="Отчество:"
+                value={values.patronymic}
+              />
+              <Input
+                type="date"
+                name="birthday"
+                label="Дата рождения:"
+                value={values.birthday}
+              />
+              <InputSelect
+                name="gender"
+                label="Пол:"
+                value={values.gender}
+                options={genderSelect}
+              />
+              <Input
+                type="text"
+                name="adress"
+                label="Адрес:"
+                value={values.adress}
+              />
+              <Input
+                type="text"
+                name="motherMaidenName"
+                label="Девичья фамилия матери:"
+                value={values.motherMaidenName}
+              />
+              <Input
+                type="text"
+                name="codeWord"
+                label="Кодовое слово в вашем банке:"
+                value={values.codeWord}
+              />
+              <Input
+                component="textarea"
+                type="textarea"
+                name="aboutUs"
+                label="Как вы узнали о нашем сайте:"
+                rows="5"
+                cols="30"
+                value={values.aboutUs}
+                as="textarea"
+              />
+              <Input
+                type="email"
+                name="friendEmail"
+                label="Email друга:"
+                value={values.friendEmail}
+              />
+              <InputSelect
+                name="gender"
+                label="За какую футбольную команду болеешь:"
+                value={values.footbal}
+                options={footbalSelect}
+              />
+              <InputSelect
+                name="pan"
+                label="Какую сковороду предпочитаешь:"
+                value={values.pan}
+                options={panSelect}
+              />
+              <NavLink to="card">
+                <button disabled={isSubmitting} type="submit">
+                  Далее
+                </button>
+              </NavLink>
+            </Form>
+          </div>
+        )}
+      </Formik>
     </div>
   );
 }
