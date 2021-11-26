@@ -2,7 +2,13 @@ import React from "react";
 import { Footer, Chat } from "./Pages/ElementsPages/index";
 import "./App.css";
 import { Switch, Route, NavLink } from "react-router-dom";
-import { CreditCardData, MainForm, Page4, PersonalData } from "./Pages";
+import {
+  CreditCardData,
+  MainForm,
+  Page4,
+  PersonalData,
+  Result,
+} from "./Pages/index";
 
 export default function App() {
   return (
@@ -42,8 +48,11 @@ export default function App() {
             <Route exact path="/registration/card">
               <CreditCardData />
             </Route>
+            <Route exact path="/registration/result">
+              <Result />
+            </Route>
+            <Chat />
           </div>
-          <Chat />
         </div>
       </Switch>
 

@@ -1,13 +1,16 @@
 import React from "react";
 import { Formik, Form } from "formik";
 import { NavLink } from "react-router-dom";
-import { Input, InputCheckBox } from "./ElementsPages/index";
-import * as yup from "yup";
+import { Input } from "./ElementsPages/index";
+// import * as yup from "yup";
+import { useDispatch } from "react-redux";
+import fetchData from "../Redux/action";
 
 export default function PersonalDataF() {
   // const validationSchema = yup.object().shape({
   //   name: yup.string().typeError("Введите строку").required("Обязательна"),
   // });
+  const dispatch = useDispatch();
 
   return (
     <div>
@@ -16,14 +19,14 @@ export default function PersonalDataF() {
           numberCard: "",
           monthYear: "",
           cvc: "",
-          typeCard: { one: "", two: "" },
+          typeCard: "",
         }}
         validateOnBlur
         onSubmit={(data, { setSubmitting }) => {
           setSubmitting(true);
-          console.log(data);
-          setSubmitting(false);
+          dispatch(fetchData(data));
         }}
+
         // validationSchema={validationSchema}
       >
         {({ values, isSubmitting }) => (
@@ -52,11 +55,10 @@ export default function PersonalDataF() {
                 value={values.cvc}
               />
 
-              <NavLink to="result">
-                <button disabled={isSubmitting} type="submit">
-                  Далее
-                </button>
-              </NavLink>
+              <NavLink to="result">Далее</NavLink>
+              <button disabled={isSubmitting} type="submit">
+                Далее
+              </button>
             </Form>
           </div>
         )}

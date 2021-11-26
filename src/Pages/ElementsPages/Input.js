@@ -20,6 +20,7 @@ export default function Input({ label, type, maxLength, component, ...props }) {
         helpertext={errorText}
         error={!!errorText}
       />
+
       {meta.touched && meta.error && (
         <p className="field-box__error-text">{meta.error}</p>
       )}
