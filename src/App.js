@@ -41,7 +41,9 @@ export default function App() {
         </Route>
         <div className="wrapper-registrations">
           <div>
-            <MainForm />
+            <>
+              <MainForm />
+            </>
             <Route exact path="/registration/personal">
               <PersonalData />
             </Route>
@@ -51,7 +53,9 @@ export default function App() {
             <Route exact path="/registration/result">
               <Result />
             </Route>
-            <Chat />
+            <>
+              <Chat />
+            </>
           </div>
         </div>
       </Switch>

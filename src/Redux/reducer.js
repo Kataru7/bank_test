@@ -10,21 +10,17 @@ export default function dataReducer(state = initialState, action) {
         ...state,
         ...action.payload,
       };
-      break;
     case "CREATE_DATA_LIST":
       return {
         ...state,
         users: [...state.users, ...action.payload],
       };
-      break;
     case "CHOICE_METHOD":
       return {
         ...state,
         choiceMethod: action.payload,
       };
-      break;
     default:
       return state;
-      break;
   }
 }
