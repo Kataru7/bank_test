@@ -1,6 +1,20 @@
-.main-form-container {
-  display: flex;
-  width: 1204px;
+.choice-registration {
   margin: 0 auto;
-  justify-content: space-between;
+  height: 335px;
+  width: 31%;
+  background-color: #fff;
+  margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+  padding: 65px 0 0 60px;
+}
+.choice-registration-item {
+  flex-basis: 10%;
+}
+.choice-registration > form {
+  padding-left: 25px;
+  height: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }

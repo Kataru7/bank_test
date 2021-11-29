@@ -1,3 +1,8 @@
+.form-container {
+  height: 167px;
+  background-color: #fff;
+  width: 73.5%;
+}
 .form-header-conteiner {
   display: flex;
   height: 115px;

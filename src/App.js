@@ -40,10 +40,8 @@ export default function App() {
           <Page4 />
         </Route>
         <div className="wrapper-registrations">
-          <div>
-            <>
-              <MainForm />
-            </>
+          <React.Fragment>
+            <MainForm />
             <Route exact path="/registration/personal">
               <PersonalData />
             </Route>
@@ -56,7 +54,7 @@ export default function App() {
             <>
               <Chat />
             </>
-          </div>
+          </React.Fragment>
         </div>
       </Switch>
 

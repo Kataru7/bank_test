@@ -7,7 +7,16 @@ function Result() {
 
   console.log(user);
   console.log(users);
-  return <div></div>;
+  return (
+    <div>
+      <div>{user.name}</div>
+      <div>{user.lastName}</div>
+      <div>{user.patronymic}</div>
+      <div>{user.birthday}</div>
+      <div>{user.gender}</div>
+      <div>{user.country}</div>
+    </div>
+  );
 }
 
 export default Result;

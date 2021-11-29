@@ -145,13 +145,14 @@ body {
 }
 .wrapper-registrations {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 35px auto;
+  width: 1204px;
+  height: 700px;
+
+  overflow: auto;
 }
-.wrapper-registrations {
-  flex-basis: 73.5%;
-  background-color: #fff;
-}
+
 .chat-container {
-  flex-basis: 25%;
-  background-color: #fff;
 }

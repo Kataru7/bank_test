@@ -14,22 +14,27 @@ export default function PersonalDataF() {
     friendEmail: yup.string().email().required(),
   });
   const genderSelect = [
-    { value: { gender: "Male", titleGender: "Муж" } },
-    { value: { gender: "Female", titleGender: "Жен" } },
-    { value: { gender: "Other", titleGender: "Другое" } },
+    { value: { select: "Male", titleSelect: "Муж" } },
+    { value: { select: "Female", titleSelect: "Жен" } },
+    { value: { select: "Other", titleSelect: "Другое" } },
+  ];
+  const countrySelect = [
+    { value: { select: "Беларусь", titleSelect: "Беларусь" } },
+    { value: { select: "Россия", titleSelect: "Россия" } },
+    { value: { select: "Украина", titleSelect: "Украина" } },
   ];
   const footbalSelect = [
-    { value: { gender: "Barselona", titleGender: "Барселона" } },
-    { value: { gender: "Real-Madrid", titleGender: "Реал-Мадрид" } },
-    { value: { gender: "Marsel", titleGender: "Марсель" } },
-    { value: { gender: "Manchester", titleGender: "Манчестер" } },
-    { value: { gender: "Juventus", titleGender: "Ювентус" } },
-    { value: { gender: "Liverpul", titleGender: "Ливерпуль" } },
+    { value: { select: "Barselona", titleSelect: "Барселона" } },
+    { value: { select: "Real-Madrid", titleSelect: "Реал-Мадрид" } },
+    { value: { select: "Marsel", titleSelect: "Марсель" } },
+    { value: { select: "Manchester", titleSelect: "Манчестер" } },
+    { value: { select: "Juventus", titleSelect: "Ювентус" } },
+    { value: { select: "Liverpul", titleSelect: "Ливерпуль" } },
   ];
   const panSelect = [
-    { value: { gender: "Tefal", titleGender: "Tefal" } },
-    { value: { gender: "Rondel", titleGender: "Rondel" } },
-    { value: { gender: "Alesia", titleGender: "Алеся" } },
+    { value: { select: "Tefal", titleSelect: "Tefal" } },
+    { value: { select: "Rondel", titleSelect: "Rondel" } },
+    { value: { select: "Alesia", titleSelect: "Алеся" } },
   ];
 
   return (
@@ -78,6 +83,7 @@ export default function PersonalDataF() {
               value={values.patronymic}
             />
             <Input
+              nameClass="data-birthday"
               type="date"
               name="birthday"
               label="Дата рождения:"
@@ -88,6 +94,12 @@ export default function PersonalDataF() {
               label="Пол:"
               value={values.gender}
               options={genderSelect}
+            />
+            <InputSelect
+              name="country"
+              label="Страна проживания:"
+              value={values.country}
+              options={countrySelect}
             />
             <Input
               type="text"
@@ -108,6 +120,7 @@ export default function PersonalDataF() {
               value={values.codeWord}
             />
             <Input
+              nameClass="text-aria"
               component="textarea"
               type="textarea"
               name="aboutUs"
@@ -124,7 +137,7 @@ export default function PersonalDataF() {
               value={values.friendEmail}
             />
             <InputSelect
-              name="gender"
+              name="footbal"
               label="За какую футбольную команду болеешь:"
               value={values.footbal}
               options={footbalSelect}

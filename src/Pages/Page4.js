@@ -10,6 +10,7 @@ import Papa from "papaparse";
 
 export default function Page4() {
   const dispatch = useDispatch();
+  // let { history } = useHistory();
 
   let open = function (event) {
     let input = event.target.files[0];
@@ -23,7 +24,11 @@ export default function Page4() {
   };
 
   return (
-    <div className="personal-data-form">
+    <div className="choice-registration">
+      <div className="choice-registration-item">
+        <p>Выберите способ регистрации:</p>
+      </div>
+
       <Formik
         initialValues={{
           choiceMethod: "",
@@ -35,13 +40,15 @@ export default function Page4() {
       >
         {(values, errors, isSubmitting) => (
           <Form>
-            <div>
+            <div className="choice-registration-item">
               <InputRadio
                 name="choiceMethod"
                 type="radio"
                 value="personal"
                 title="Персональная"
               />
+            </div>
+            <div className="choice-registration-item">
               <InputRadio
                 name="choiceMethod"
                 type="radio"
@@ -49,25 +56,26 @@ export default function Page4() {
                 title="Регистрация пользователей списком"
               />
             </div>
-            {values.values.choiceMethod === "list" && (
-              <label
-                className="start-reg-page__load-label"
-                htmlFor="csv-uploads"
-              >
-                <div className="start-reg-page__load-title">
-                  Загрузить список
-                </div>
-                <input
-                  className="start-reg-page__load-input"
-                  name="csv-uploads"
-                  id="csv-uploads"
-                  type="file"
-                  accept=".csv"
-                  onChange={(e) => open(e)}
-                />
-              </label>
-            )}
-            <div className="button-box">
+
+            <div className="choice-registration-item">
+              {values.values.choiceMethod === "list" && (
+                <label
+                  className="start-reg-page__load-label"
+                  htmlFor="csv-uploads"
+                >
+                  <div className="start-reg-page__load-title">
+                    Загрузить список
+                  </div>
+                  <input
+                    className="start-reg-page__load-input"
+                    name="csv-uploads"
+                    id="csv-uploads"
+                    type="file"
+                    accept=".csv"
+                    onChange={(e) => open(e)}
+                  />
+                </label>
+              )}
               {values.values.choiceMethod === "personal" ? (
                 <div>
                   <NavLink exact to="/registration/personal">

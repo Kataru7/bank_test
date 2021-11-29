@@ -1,8 +1,10 @@
 .personal-data-form {
-  display: flex;
-}
-.personal-data-form > {
   flex-direction: column;
+  display: flex;
+  overflow: auto;
+  height: 533px;
+  background-color: #fff;
+  width: 73.5%;
 }
 .data-form {
   padding-left: 53px;
@@ -12,15 +14,31 @@
 }
 .form-input {
   display: flex;
+  align-items: center;
   height: 50px;
 }
+
 .data-form-title {
   display: flex;
   height: 80px;
   align-items: center;
 }
-.input {
-  width: 100%;
+.field-box__input {
+  width: 50%;
+  height: 27px;
+}
+.text-aria {
+  height: 150px;
+}
+.data-birthday > .field-box__input {
+  width: 20%;
+  height: 27px;
+}
+.text-aria > .field-box__input {
+  height: 140px;
+}
+.field-box__input.select {
+  width: 20%;
   height: 27px;
 }
 .data-form > div > label {

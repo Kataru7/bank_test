@@ -1,10 +1,11 @@
 import React from "react";
 import { Field, useField } from "formik";
+import "./InputRadio.css";
 
 export default function InputRadio({ title, ...props }) {
   const [field] = useField(props);
   return (
-    <div>
+    <div className="radio">
       <label className="field-box__radio-label">
         <Field
           {...field}
