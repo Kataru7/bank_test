@@ -7,7 +7,8 @@ import {
   MainForm,
   Page4,
   PersonalData,
-  Result,
+  ResultPersonal,
+  ResultList,
 } from "./Pages/index";
 
 export default function App() {
@@ -48,8 +49,11 @@ export default function App() {
             <Route exact path="/registration/card">
               <CreditCardData />
             </Route>
-            <Route exact path="/registration/result">
-              <Result />
+            <Route exact path="/registration/personal-result">
+              <ResultPersonal />
+            </Route>
+            <Route exact path="/registration/list-result">
+              <ResultList />
             </Route>
             <>
               <Chat />

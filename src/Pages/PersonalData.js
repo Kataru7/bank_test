@@ -3,12 +3,13 @@ import { Formik, Form } from "formik";
 import "./PersonalData.css";
 import { Input, InputSelect } from "./ElementsPages/index";
 import * as yup from "yup";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import fetchData from "../Redux/action";
 
 export default function PersonalDataF() {
   const dispatch = useDispatch();
+  let history = useHistory();
 
   const validationSchema = yup.object().shape({
     friendEmail: yup.string().email().required(),
@@ -46,8 +47,8 @@ export default function PersonalDataF() {
           lastName: "",
           patronymic: "",
           birthday: "",
-          gender: "",
-          country: "",
+          gender: "Муж",
+          country: "Беларусь",
           adress: "",
           motherMaidenName: "",
           codeWord: "",
@@ -61,6 +62,7 @@ export default function PersonalDataF() {
         onSubmit={(data, { setSubmitting }) => {
           setSubmitting(true);
           dispatch(fetchData(data));
+          history.push("card");
         }}
         validationSchema={validationSchema}
       >
@@ -151,7 +153,6 @@ export default function PersonalDataF() {
             <button disabled={isSubmitting} type="submit">
               Далее
             </button>
-            <NavLink to="card">Далее</NavLink>
           </Form>
         )}
       </Formik>

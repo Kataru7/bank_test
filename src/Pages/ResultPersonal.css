@@ -1,0 +1,9 @@
+.table-info {
+  display: flex;
+  justify-content: center;
+}
+.table-info > div {
+  flex-basis: 15%;
+  height: 30px;
+  border: 1px solid darkgrey;
+}

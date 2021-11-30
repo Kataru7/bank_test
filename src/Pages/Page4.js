@@ -1,6 +1,6 @@
 import React from "react";
 import "./Page4.css";
-import { NavLink } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { InputRadio } from "./ElementsPages/index";
 import { Formik, Form } from "formik";
 import { useDispatch } from "react-redux";
@@ -10,7 +10,7 @@ import Papa from "papaparse";
 
 export default function Page4() {
   const dispatch = useDispatch();
-  // let { history } = useHistory();
+  let history = useHistory();
 
   let open = function (event) {
     let input = event.target.files[0];
@@ -36,6 +36,12 @@ export default function Page4() {
         }}
         onSubmit={(data) => {
           dispatch(fetchDataMethod(data.choiceMethod));
+          console.log(data);
+          if (data.choiceMethod === "personal") {
+            history.push("/registration/personal");
+          } else if (data.choiceMethod === "list") {
+            history.push("/registration/list-result");
+          }
         }}
       >
         {(values, errors, isSubmitting) => (
@@ -78,14 +84,10 @@ export default function Page4() {
               )}
               {values.values.choiceMethod === "personal" ? (
                 <div>
-                  <NavLink exact to="/registration/personal">
-                    Далее
-                  </NavLink>
+                  <input type="submit" value="Next" />
                 </div>
               ) : (
-                <NavLink exact to="/registration/result">
-                  Далее
-                </NavLink>
+                <input type="submit" value="Next" />
               )}
             </div>
           </Form>
