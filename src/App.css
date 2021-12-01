@@ -149,7 +149,5 @@ body {
   flex-wrap: wrap;
   margin: 35px auto;
   width: 1204px;
-  height: 700px;
-
-  overflow: auto;
+  height: 735px;
 }

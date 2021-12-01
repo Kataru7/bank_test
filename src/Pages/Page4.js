@@ -84,10 +84,10 @@ export default function Page4() {
               )}
               {values.values.choiceMethod === "personal" ? (
                 <div>
-                  <input type="submit" value="Next" />
+                  <input className="submit-btn" type="submit" value="Next" />
                 </div>
               ) : (
-                <input type="submit" value="Next" />
+                <input className="submit-btn" type="submit" value="Next" />
               )}
             </div>
           </Form>

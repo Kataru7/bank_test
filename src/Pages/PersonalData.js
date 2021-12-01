@@ -3,7 +3,7 @@ import { Formik, Form } from "formik";
 import "./PersonalData.css";
 import { Input, InputSelect } from "./ElementsPages/index";
 import * as yup from "yup";
-import { NavLink, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import fetchData from "../Redux/action";
 
@@ -12,12 +12,18 @@ export default function PersonalDataF() {
   let history = useHistory();
 
   const validationSchema = yup.object().shape({
-    friendEmail: yup.string().email().required(),
+    name: yup.string().required("Заполните это поле"),
+    lastName: yup.string().required("Заполните это поле"),
+    patronymic: yup.string().required("Заполните это поле"),
+    birthday: yup.string().required("Заполните это поле"),
+    adress: yup.string().required("Заполните это поле"),
+    motherMaidenName: yup.string().required("Заполните это поле"),
+    codeWord: yup.string().required("Заполните это поле"),
+    friendEmail: yup.string().email().required("Заполните это поле"),
   });
   const genderSelect = [
     { value: { select: "Male", titleSelect: "Муж" } },
     { value: { select: "Female", titleSelect: "Жен" } },
-    { value: { select: "Other", titleSelect: "Другое" } },
   ];
   const countrySelect = [
     { value: { select: "Беларусь", titleSelect: "Беларусь" } },
@@ -39,123 +45,163 @@ export default function PersonalDataF() {
   ];
 
   return (
-    <div className="personal-data-form">
-      <Formik
-        validateOnChange={true}
-        initialValues={{
-          name: "",
-          lastName: "",
-          patronymic: "",
-          birthday: "",
-          gender: "Муж",
-          country: "Беларусь",
-          adress: "",
-          motherMaidenName: "",
-          codeWord: "",
-          aboutUs: "",
-          friendEmail: "",
-          tel: "",
-          footbal: "",
-          pan: "",
-        }}
-        validateOnBlur
-        onSubmit={(data, { setSubmitting }) => {
-          setSubmitting(true);
-          dispatch(fetchData(data));
-          history.push("card");
-        }}
-        validationSchema={validationSchema}
-      >
-        {({ values, isSubmitting }) => (
-          <Form className="data-form">
-            <div className="data-form-title">
-              Все поля обязательны для заполнения
+    <>
+      <div className="personal-data-form-container">
+        <Formik
+          validateOnChange={true}
+          initialValues={{
+            name: "",
+            lastName: "",
+            patronymic: "",
+            birthday: "",
+            gender: "Муж",
+            country: "Беларусь",
+            adress: "",
+            motherMaidenName: "",
+            codeWord: "",
+            aboutUs: "",
+            friendEmail: "",
+            telBoyfriend: "",
+            telGirlfriend: "",
+            footbal: "",
+            pan: "",
+          }}
+          validateOnBlur
+          onSubmit={(data, { setSubmitting }) => {
+            setSubmitting(true);
+            dispatch(fetchData(data));
+            history.push("card");
+          }}
+          validationSchema={validationSchema}
+        >
+          {({ values, isSubmitting }) => (
+            <div className="personal-data-form">
+              <Form className="data-form">
+                <div className="data-form-title">
+                  Все поля обязательны для заполнения
+                </div>
+                <Input
+                  type="text"
+                  name="name"
+                  label="Имя:"
+                  value={values.name}
+                />
+                <Input
+                  type="text"
+                  name="lastName"
+                  label="Фамилия:"
+                  value={values.lastName}
+                />
+                <Input
+                  type="text"
+                  name="patronymic"
+                  label="Отчество:"
+                  value={values.patronymic}
+                />
+                <Input
+                  nameClass="data-birthday"
+                  type="text"
+                  name="birthday"
+                  label="Дата рождения:"
+                  value={values.birthday}
+                  typeMask={"date"}
+                />
+                <InputSelect
+                  name="gender"
+                  label="Пол:"
+                  value={values.gender}
+                  options={genderSelect}
+                />
+                <InputSelect
+                  name="country"
+                  label="Страна проживания:"
+                  value={values.country}
+                  options={countrySelect}
+                />
+                <Input
+                  type="text"
+                  name="adress"
+                  label="Адрес:"
+                  value={values.adress}
+                />
+                <Input
+                  type="text"
+                  name="motherMaidenName"
+                  label="Девичья фамилия матери:"
+                  value={values.motherMaidenName}
+                />
+                <Input
+                  type="text"
+                  name="codeWord"
+                  label="Кодовое слово в вашем банке:"
+                  value={values.codeWord}
+                />
+                <Input
+                  nameClass="text-aria"
+                  component="textarea"
+                  type="textarea"
+                  name="aboutUs"
+                  label="Как вы узнали о нашем сайте:"
+                  rows="5"
+                  cols="30"
+                  value={values.aboutUs}
+                  as="textarea"
+                />
+                <Input
+                  type="email"
+                  name="friendEmail"
+                  label="Email друга:"
+                  value={values.friendEmail}
+                />
+
+                {values.gender === "Муж" ? (
+                  <>
+                    <Input
+                      type="text"
+                      name="telGirlfriend"
+                      label="Номер телефона своей девушки:"
+                      value={values.telGirlfriend}
+                      typeMask={"tel"}
+                    />
+                    <InputSelect
+                      name="footbal"
+                      label="За какую футбольную команду болеешь:"
+                      value={values.footbal}
+                      options={footbalSelect}
+                    />
+                  </>
+                ) : (
+                  <>
+                    <Input
+                      type="text"
+                      name="telBoyfriend"
+                      label="Номер телефона своего парня:"
+                      value={values.telBoyfriend}
+                      typeMask={"tel"}
+                    />
+                    <InputSelect
+                      name="pan"
+                      label="Какую сковороду предпочитаешь:"
+                      value={values.pan}
+                      options={panSelect}
+                      telType={values.telBoyfriend}
+                    />
+                  </>
+                )}
+                <div className="form-footer">
+                  <button
+                    disabled={isSubmitting}
+                    type="submit"
+                    className="submit-btn"
+                  >
+                    <span className="text-submit-btn">Далее</span>
+                  </button>
+                </div>
+              </Form>
             </div>
-            <Input type="text" name="name" label="Имя:" value={values.name} />
-            <Input
-              type="text"
-              name="lastName"
-              label="Фамилия:"
-              value={values.lastName}
-            />
-            <Input
-              type="text"
-              name="patronymic"
-              label="Отчество:"
-              value={values.patronymic}
-            />
-            <Input
-              nameClass="data-birthday"
-              type="date"
-              name="birthday"
-              label="Дата рождения:"
-              value={values.birthday}
-            />
-            <InputSelect
-              name="gender"
-              label="Пол:"
-              value={values.gender}
-              options={genderSelect}
-            />
-            <InputSelect
-              name="country"
-              label="Страна проживания:"
-              value={values.country}
-              options={countrySelect}
-            />
-            <Input
-              type="text"
-              name="adress"
-              label="Адрес:"
-              value={values.adress}
-            />
-            <Input
-              type="text"
-              name="motherMaidenName"
-              label="Девичья фамилия матери:"
-              value={values.motherMaidenName}
-            />
-            <Input
-              type="text"
-              name="codeWord"
-              label="Кодовое слово в вашем банке:"
-              value={values.codeWord}
-            />
-            <Input
-              nameClass="text-aria"
-              component="textarea"
-              type="textarea"
-              name="aboutUs"
-              label="Как вы узнали о нашем сайте:"
-              rows="5"
-              cols="30"
-              value={values.aboutUs}
-              as="textarea"
-            />
-            <Input
-              type="email"
-              name="friendEmail"
-              label="Email друга:"
-              value={values.friendEmail}
-            />
-            <InputSelect
-              name="footbal"
-              label="За какую футбольную команду болеешь:"
-              value={values.footbal}
-              options={footbalSelect}
-            />
-            <InputSelect
-              name="pan"
-              label="Какую сковороду предпочитаешь:"
-              value={values.pan}
-              options={panSelect}
-            />
-            <button disabled={isSubmitting} type="submit">
-              Далее
-            </button>
-          </Form>
-        )}
-      </Formik>
-    </div>
+          )}
+        </Formik>
+      </div>
+    </>
   );
 }

@@ -20,20 +20,25 @@ function ResultList() {
     );
   });
   return (
-    <div className="personal-data-form">
-      <div>
-        <h4>ЛИЧНЫЕ ДАННЫЕ</h4>
-      </div>
-      <div className="table-container">
-        <div className="table-info">
-          <div>Имя</div>
-          <div>Отчество</div>
-          <div>Дата рождения</div>
-          <div>Пол</div>
-          <div>Страна</div>
-          <div>Инфо</div>
+    <div className="personal-data-form-container">
+      <div className="personal-data-form">
+        <div>
+          <h4>ЛИЧНЫЕ ДАННЫЕ</h4>
         </div>
-        {infoList}
+        <div className="table-container">
+          <div className="table-info">
+            <div>Имя</div>
+            <div>Отчество</div>
+            <div>Дата рождения</div>
+            <div>Пол</div>
+            <div>Страна</div>
+            <div>Инфо</div>
+          </div>
+          {infoList}
+        </div>
+        <div className="form-footer">
+          <button className="submit-btn">Сохранить</button>
+        </div>
       </div>
     </div>
   );

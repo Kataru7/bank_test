@@ -7,6 +7,7 @@
   display: flex;
   height: 115px;
   align-items: center;
+  position: relative;
 }
 .form-header {
   font-family: system-ui;
@@ -24,4 +25,20 @@
   font-family: system-ui;
   margin: 0 0 8px 53px;
   font-size: 19px;
+}
+
+.field-box__input-error {
+  border: 1px solid red;
+  border-radius: 2px;
+}
+.field-box__error-text {
+  color: red;
+  font-size: 12px;
+  bottom: 30px;
+  position: absolute;
+}
+.field-box__title_container {
+  position: relative;
+  width: 100%;
+  padding-left: 72px;
 }
