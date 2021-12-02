@@ -1,11 +1,23 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import "./ResultPersonal.css";
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "../Firebase/firebase-config";
 
 function ResultPersonal() {
   const user = useSelector((state) => state);
+  const dataTransfer = async () => {
+    try {
+      const docRef = await addDoc(collection(db, "data_registration"), {
+        ...user,
+      });
 
-  console.log(user);
+      console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+  };
+
   return (
     <div className="personal-data-form-container">
       <div className="personal-data-form">
@@ -33,7 +45,9 @@ function ResultPersonal() {
           </div>
         </div>
         <div className="form-footer">
-          <button className="submit-btn">Сохранить</button>
+          <button className="submit-btn" onClick={dataTransfer}>
+            Сохранить
+          </button>
         </div>
       </div>
     </div>

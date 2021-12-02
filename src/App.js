@@ -1,70 +1,14 @@
 import React from "react";
-import { Footer, Chat } from "./Pages/ElementsPages/index";
-import "./App.css";
-import { Switch, Route, NavLink } from "react-router-dom";
-import {
-  CreditCardData,
-  MainForm,
-  Page4,
-  PersonalData,
-  ResultPersonal,
-  ResultList,
-} from "./Pages/index";
+import { BrowserRouter } from "react-router-dom";
+import { Auth } from "./Pages/index";
+import Routing from "./Routing";
+import { useSelector } from "react-redux";
 
 export default function App() {
+  const userSingIn = useSelector((state) => state.singInUser);
   return (
-    <div className="container">
-      <div className="nav">
-        <h1 className="nav-one">Городской сайт</h1>
-        <div className="nav-two">
-          <ul className="nav-list-container">
-            <li>
-              <NavLink to="/registration">Пункт 1</NavLink>
-            </li>
-            <li>
-              <NavLink to="/registration">Пункт 2</NavLink>
-            </li>
-            <li>
-              <NavLink to="/registration">Пункт 3</NavLink>
-            </li>
-            <li>
-              <NavLink to="/registration">Пункт 4</NavLink>
-            </li>
-            <li>
-              <NavLink to="/registration">Пункт 5</NavLink>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <Switch>
-        <Route exact path="/registration">
-          <Page4 />
-        </Route>
-        <div className="wrapper-registrations">
-          <React.Fragment>
-            <MainForm />
-            <Route exact path="/registration/personal">
-              <PersonalData />
-            </Route>
-            <Route exact path="/registration/card">
-              <CreditCardData />
-            </Route>
-            <Route exact path="/registration/personal-result">
-              <ResultPersonal />
-            </Route>
-            <Route exact path="/registration/list-result">
-              <ResultList />
-            </Route>
-            <>
-              <Chat />
-            </>
-          </React.Fragment>
-        </div>
-      </Switch>
-
-      <div className="footer">
-        <Footer />
-      </div>
-    </div>
+    <>
+      <BrowserRouter>{!userSingIn ? <Auth /> : <Routing />}</BrowserRouter>
+    </>
   );
 }

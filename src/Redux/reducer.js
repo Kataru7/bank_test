@@ -1,4 +1,5 @@
 const initialState = {
+  singInUser: false,
   choiceMethod: {},
   users: [],
 };
@@ -19,6 +20,11 @@ export default function dataReducer(state = initialState, action) {
       return {
         ...state,
         choiceMethod: action.payload,
+      };
+    case "SING_IN":
+      return {
+        ...state,
+        singInUser: action.payload,
       };
     default:
       return state;
