@@ -6,10 +6,19 @@ import * as yup from "yup";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import fetchData from "../Redux/action";
+import actionEdit from "../Redux/actionEdit";
+
+import { useSelector } from "react-redux";
 
 export default function PersonalDataF() {
   const dispatch = useDispatch();
   let history = useHistory();
+  const isEdit = useSelector((state) => state.edit);
+  const users = useSelector((state) => state.users);
+  const editId = useSelector((state) => state.editId);
+
+  const user = users.find((item) => item.id === editId);
+  const newUsers = users.filter((item) => item.id !== user.id);
 
   const validationSchema = yup.object().shape({
     name: yup.string().required("Заполните это поле"),
@@ -22,8 +31,8 @@ export default function PersonalDataF() {
     friendEmail: yup.string().email().required("Заполните это поле"),
   });
   const genderSelect = [
-    { value: { select: "Male", titleSelect: "Муж" } },
-    { value: { select: "Female", titleSelect: "Жен" } },
+    { value: { select: "Муж", titleSelect: "Муж" } },
+    { value: { select: "Жен", titleSelect: "Жен" } },
   ];
   const countrySelect = [
     { value: { select: "Беларусь", titleSelect: "Беларусь" } },
@@ -49,28 +58,54 @@ export default function PersonalDataF() {
       <div className="personal-data-form-container">
         <Formik
           validateOnChange={true}
-          initialValues={{
-            name: "",
-            lastName: "",
-            patronymic: "",
-            birthday: "",
-            gender: "Муж",
-            country: "Беларусь",
-            adress: "",
-            motherMaidenName: "",
-            codeWord: "",
-            aboutUs: "",
-            friendEmail: "",
-            telBoyfriend: "",
-            telGirlfriend: "",
-            footbal: "",
-            pan: "",
-          }}
+          initialValues={
+            isEdit
+              ? {
+                  id: user.id,
+                  name: user.name,
+                  lastName: user.lastName,
+                  patronymic: user.patronymic,
+                  birthday: user.birthday,
+                  gender: user.gender,
+                  country: user.country,
+                  adress: user.adress,
+                  motherMaidenName: user.motherMaidenName,
+                  codeWord: user.codeWord,
+                  aboutUs: user.aboutUs,
+                  friendEmail: user.friendEmail,
+                  telBoyfriend: user.telBoyfriend,
+                  telGirlfriend: user.telGirlfriend,
+                  pan: user.pan,
+                  footbal: user.footbal,
+                }
+              : {
+                  name: "",
+                  lastName: "",
+                  patronymic: "",
+                  birthday: "",
+                  gender: "Муж",
+                  country: "Беларусь",
+                  adress: "",
+                  motherMaidenName: "",
+                  codeWord: "",
+                  aboutUs: "",
+                  friendEmail: "",
+                  telBoyfriend: "",
+                  telGirlfriend: "",
+                  footbal: "",
+                  pan: "",
+                }
+          }
           validateOnBlur
           onSubmit={(data, { setSubmitting }) => {
             setSubmitting(true);
-            dispatch(fetchData(data));
-            history.push("card");
+            if (isEdit) {
+              dispatch(actionEdit([...newUsers, { ...user, ...data }]));
+              history.push("list-result");
+            } else {
+              dispatch(fetchData(data));
+              history.push("card");
+            }
           }}
           validationSchema={validationSchema}
         >

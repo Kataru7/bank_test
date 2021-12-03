@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import "./ResultPersonal.css";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, doc, getDoc, getDocs } from "firebase/firestore";
 import { db } from "../Firebase/firebase-config";
 
 function ResultPersonal() {
@@ -18,6 +18,13 @@ function ResultPersonal() {
     }
   };
 
+  const getData = async () => {
+    const querySnapshot = await getDocs(collection(db, "data_registration"));
+    console.log(querySnapshot);
+    querySnapshot.forEach((doc) => {
+      console.log(doc.data());
+    });
+  };
   return (
     <div className="personal-data-form-container">
       <div className="personal-data-form">
@@ -47,6 +54,9 @@ function ResultPersonal() {
         <div className="form-footer">
           <button className="submit-btn" onClick={dataTransfer}>
             Сохранить
+          </button>
+          <button className="submit-btn" onClick={getData}>
+            Загрузить
           </button>
         </div>
       </div>

@@ -36,7 +36,6 @@ export default function Page4() {
         }}
         onSubmit={(data) => {
           dispatch(fetchDataMethod(data.choiceMethod));
-          console.log(data);
           if (data.choiceMethod === "personal") {
             history.push("/registration/personal");
           } else if (data.choiceMethod === "list") {

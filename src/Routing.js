@@ -26,12 +26,10 @@ export default function Routing() {
   const dispatch = useDispatch();
   const userSingIn = useSelector((state) => state.singInUser);
   const singOutUser = () => {
-    signOut(auth)
-      .then(() => {
-        dispatch(fetchSingIn(false));
-        history.push("/");
-      })
-      .catch((error) => {});
+    signOut(auth).then(() => {
+      dispatch(fetchSingIn(false));
+      history.push("/");
+    });
   };
   return (
     <div className="container">

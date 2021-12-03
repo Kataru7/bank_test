@@ -78,3 +78,14 @@
 .text-submit-btn {
   text-shadow: -0.6px -0.6px 0px rgb(0 0 0 / 73%);
 }
+
+.btn-change {
+  color: #19cbac;
+  font-size: 14px;
+  cursor: pointer;
+}
+.table-data {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}

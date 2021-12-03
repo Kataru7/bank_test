@@ -1,5 +1,6 @@
 import React from "react";
 import "./MainForm.css";
+import { NavLink } from "react-router-dom";
 
 export default function MainForm() {
   return (
@@ -8,9 +9,31 @@ export default function MainForm() {
         <h2 className="form-header">Типовая форма</h2>
       </div>
       <div className="form-steps">
-        <div>Личные данные</div>
-        <div>Данные кредитной кары</div>
-        <div>Результат</div>
+        <NavLink
+          className="forms-wrap__link"
+          activeClassName="forms-wrap__link--active"
+          exact
+          to="/registration/personal/"
+        >
+          Личные данные
+        </NavLink>
+        <NavLink
+          className="forms-wrap__link"
+          activeClassName="forms-wrap__link--active"
+          exact
+          to="/registration/card/"
+        >
+          Данные кредитной кары
+        </NavLink>
+        <NavLink
+          className="forms-wrap__link"
+          activeClassName="forms-wrap__link--active"
+          exact
+          to="/registration/personal-result/"
+          to="/registration/list-result"
+        >
+          Результат
+        </NavLink>
       </div>
     </div>
   );

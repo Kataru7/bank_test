@@ -1,6 +1,8 @@
 const initialState = {
   singInUser: false,
   choiceMethod: {},
+  edit: false,
+  editId: "",
   users: [],
 };
 
@@ -26,6 +28,18 @@ export default function dataReducer(state = initialState, action) {
         ...state,
         singInUser: action.payload,
       };
+    case "EDIT":
+      return {
+        ...state,
+        users: action.payload,
+      };
+    case "EDIT_ID":
+      return {
+        ...state,
+        edit: true,
+        editId: action.payload,
+      };
+
     default:
       return state;
   }

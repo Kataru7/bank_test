@@ -11,6 +11,7 @@ import {
 import { useDispatch } from "react-redux";
 import fetchSingIn from "../Redux/actionSingIn";
 import { useHistory } from "react-router-dom";
+import "./Auth.css";
 
 export default function Auth() {
   const dispatch = useDispatch();
@@ -63,10 +64,10 @@ export default function Auth() {
   };
 
   return (
-    <div>
-      <form>
-        <div>
-          <label></label>
+    <div className="auth-container">
+      <form className="auth-form">
+        <div className="auth-form-elem">
+          <label>Email</label>
           <input
             placeholder="Email"
             type="email"
@@ -74,8 +75,8 @@ export default function Auth() {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <div>
-          <label></label>
+        <div className="auth-form-elem">
+          <label>Password</label>
           <input
             placeholder="Password"
             type="password"
@@ -84,20 +85,24 @@ export default function Auth() {
           />
         </div>
         <div>
-          <div>
-            <button type="button" onClick={singInEmail}>
+          <div className="btns-sing">
+            <button
+              type="button"
+              className="submit-btn sing"
+              onClick={singInEmail}
+            >
               Вход
             </button>
-            <button type="button" onClick={singOut}>
+            <button type="button" className="submit-btn sing" onClick={singOut}>
               Выйти
             </button>
           </div>
           <div>
-            <button type="button" onClick={registerNewUser}>
+            <a href="" className="registration-link" onClick={registerNewUser}>
               Регистрация
-            </button>
+            </a>
             <button type="button" onClick={registerInGoogle}>
-              Регистрация через Google
+              Регистрация Google
             </button>
           </div>
         </div>
