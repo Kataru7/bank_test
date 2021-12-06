@@ -43,9 +43,9 @@ export default function Page4() {
           }
         }}
       >
-        {(values, errors, isSubmitting) => (
-          <Form>
-            <div className="choice-registration-item">
+        {(values) => (
+          <Form className="choice-registration-form">
+            <div className="choice-registration-item radio">
               <InputRadio
                 name="choiceMethod"
                 type="radio"
@@ -53,7 +53,7 @@ export default function Page4() {
                 title="Персональная"
               />
             </div>
-            <div className="choice-registration-item">
+            <div className="choice-registration-item radio">
               <InputRadio
                 name="choiceMethod"
                 type="radio"
@@ -62,7 +62,7 @@ export default function Page4() {
               />
             </div>
 
-            <div className="choice-registration-item">
+            <div className="choice-registration-item button">
               {values.values.choiceMethod === "list" && (
                 <label
                   className="start-reg-page__load-label"
@@ -82,11 +82,9 @@ export default function Page4() {
                 </label>
               )}
               {values.values.choiceMethod === "personal" ? (
-                <div>
-                  <input className="submit-btn" type="submit" value="Next" />
-                </div>
+                <input className="submit-btn reg" type="submit" value="Далее" />
               ) : (
-                <input className="submit-btn" type="submit" value="Next" />
+                <input className="submit-btn reg" type="submit" value="Далее" />
               )}
             </div>
           </Form>

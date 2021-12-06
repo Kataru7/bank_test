@@ -7,7 +7,6 @@ import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import fetchData from "../Redux/action";
 import actionEdit from "../Redux/actionEdit";
-
 import { useSelector } from "react-redux";
 
 export default function PersonalDataF() {
@@ -101,7 +100,7 @@ export default function PersonalDataF() {
             setSubmitting(true);
             if (isEdit) {
               dispatch(actionEdit([...newUsers, { ...user, ...data }]));
-              history.push("list-result");
+              history.push("card");
             } else {
               dispatch(fetchData(data));
               history.push("card");

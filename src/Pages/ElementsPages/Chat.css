@@ -8,6 +8,7 @@
   width: 24.7%;
   padding: 0;
   position: relative;
+  box-shadow: 0px 5px 4px 3px rgba(34, 60, 80, 0.1);
 }
 .chat-header {
   position: absolute;
@@ -36,8 +37,9 @@
 .chat-input > form {
   display: flex;
   flex-basis: 10%;
-  border-top: 1px solid darkgrey;
+  border-top: 1px solid lightgray;
   align-items: center;
+  width: 300px;
 }
 .bot {
   display: flex;
@@ -59,12 +61,19 @@
   padding: 10px 15px 10px 15px;
 }
 .chat-textarea {
+  border: none;
+  resize: none;
   width: 230px;
-  height: 75px;
+  height: 55px;
   margin: 0;
   padding: 0;
 }
+.chat-btn-container {
+  display: flex;
+  width: 100%;
+}
 .chat-btn {
+  margin: 0 auto;
   width: 30px;
   height: 30px;
   border-radius: 50%;

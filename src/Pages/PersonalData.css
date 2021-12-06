@@ -8,6 +8,7 @@
 .personal-data-form-container {
   position: relative;
   width: 73.5%;
+  box-shadow: 0px 5px 4px 3px rgba(34, 60, 80, 0.1);
 }
 .data-form {
   padding-left: 53px;
@@ -32,6 +33,13 @@
 .field-box__input {
   width: 75.1%;
   height: 28px;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  box-shadow: 0px 2px 4px 2px rgba(42, 46, 48, 0.096) inset;
+}
+.field-box__input-error {
+  border: 1px solid red;
+  border-radius: 2px;
 }
 .text-aria {
   height: 150px;
@@ -59,10 +67,11 @@
   height: 80px;
   top: 488px;
   left: 0;
-  border-top: 1px solid gray;
+  border-top: 1px solid lightgray;
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0px 5px 4px 3px rgba(34, 60, 80, 0.1);
 }
 .submit-btn {
   border: none;
@@ -74,9 +83,6 @@
   border-bottom: 2px solid #13a088;
   font-size: 18px;
   color: #ffff;
-}
-.text-submit-btn {
-  text-shadow: -0.6px -0.6px 0px rgb(0 0 0 / 73%);
 }
 
 .btn-change {

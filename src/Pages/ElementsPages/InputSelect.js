@@ -26,7 +26,6 @@ export default function Input({ label, options, telType, ...props }) {
         }
         {...field}
         helpertext={errorText}
-        error={!!errorText}
       >
         {option}
       </select>

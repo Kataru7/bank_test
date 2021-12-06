@@ -45,7 +45,6 @@ export default function Routing() {
             </li>
             <li>
               <NavLink to="/3">Пункт 3</NavLink>
-              <div>{console.log(userSingIn)}</div>
             </li>
             <li>
               <NavLink to="/registration">Пункт 4</NavLink>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Field, useField } from "formik";
+import { useField } from "formik";
 
 import InputMask from "react-input-mask";
 
@@ -47,7 +47,6 @@ export default function Input({
           {...field}
           maxLength={maxLength}
           helpertext={errorText}
-          error={!!errorText}
         />
         {meta.touched && meta.error && (
           <p className="field-box__error-text">{meta.error}</p>

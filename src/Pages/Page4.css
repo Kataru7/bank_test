@@ -6,15 +6,83 @@
   margin-top: 70px;
   display: flex;
   flex-direction: column;
-  padding: 65px 0 0 60px;
 }
 .choice-registration-item {
-  flex-basis: 10%;
+  margin-left: 60px;
+  display: flex;
+  align-items: flex-end;
+  flex-basis: 25%;
 }
-.choice-registration > form {
-  padding-left: 25px;
-  height: 110px;
+.choice-registration-form {
+  height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  position: relative;
+}
+.choice-registration-item.button {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  flex-basis: 80%;
+}
+
+.start-reg-page__load-label {
+  cursor: pointer;
+  position: relative;
+  height: 100px;
+  margin-left: -25px;
+}
+.start-reg-page__load-title {
+  color: #19cbac;
+  font-size: 14px;
+  position: absolute;
+  padding: 10px 14px 10px 20px;
+  top: -7px;
+  left: 10px;
+  letter-spacing: 0.5px;
+  z-index: 10;
+  background-color: #fff;
+}
+
+.start-reg-page__load-title::before {
+  position: absolute;
+  content: "";
+  bottom: 7px;
+  left: 19px;
+  width: 122px;
+  border-bottom: 1px dotted #19cbac;
+  background-color: #19cbac;
+}
+
+.start-reg-page__load-input {
+  padding-left: 43px;
+  padding-bottom: 3px;
+  transition: all 0.3s;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.start-reg-page__load-input::after {
+  content: "";
+  width: 2px;
+  height: 14px;
+  position: absolute;
+  bottom: 80px;
+  right: 149px;
+  background-color: #d5d5d5;
+  font-size: 15px;
+  z-index: 10;
+}
+
+.choice-registration-item.radio {
+  margin-left: 80px;
+  padding-bottom: 7px;
+}
+
+.submit-btn.reg {
+  position: absolute;
+  margin-left: -80px;
+  bottom: 10px;
 }

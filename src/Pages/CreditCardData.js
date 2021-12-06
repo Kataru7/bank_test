@@ -5,8 +5,18 @@ import { Input, InputRadio } from "./ElementsPages/index";
 import * as yup from "yup";
 import { useDispatch } from "react-redux";
 import fetchData from "../Redux/action";
+import { useSelector } from "react-redux";
+import actionEdit from "../Redux/actionEdit";
+import fetchDataMethod from "../Redux/actionChoice";
 
 export default function PersonalDataF() {
+  const isEdit = useSelector((state) => state.edit);
+  const users = useSelector((state) => state.users);
+  const editId = useSelector((state) => state.editId);
+  const choiceMethod = useSelector((state) => state.choiceMethod);
+
+  const user = users.find((item) => item.id === editId);
+  const newUsers = users.filter((item) => item.id !== user.id);
   const validationSchema = yup.object().shape({
     numberCard: yup.string().required("Заполните это поле"),
     monthYear: yup.string().required("Заполните это поле"),
@@ -18,17 +28,35 @@ export default function PersonalDataF() {
   return (
     <div className="personal-data-form-container">
       <Formik
-        initialValues={{
-          numberCard: "",
-          monthYear: "",
-          cvc: "",
-          typeCard: "",
-        }}
+        initialValues={
+          isEdit
+            ? {
+                numberCard: user.numberCard,
+                monthYear: user.monthYear,
+                cvc: user.cvc,
+                typeCard: user.typeCard,
+              }
+            : {
+                numberCard: "",
+                monthYear: "",
+                cvc: "",
+                typeCard: "",
+              }
+        }
         validateOnBlur
         onSubmit={(data, { setSubmitting }) => {
           setSubmitting(true);
-          dispatch(fetchData(data));
-          history.push("personal-result");
+          if (isEdit) {
+            dispatch(actionEdit([...newUsers, { ...user, ...data }]));
+            choiceMethod === "personal"
+              ? history.push("personal-result")
+              : history.push("list-result");
+            dispatch(fetchDataMethod({ isEdit: false }));
+            history.push("list-result");
+          } else {
+            dispatch(fetchData(data));
+            history.push("personal-result");
+          }
         }}
         validationSchema={validationSchema}
       >

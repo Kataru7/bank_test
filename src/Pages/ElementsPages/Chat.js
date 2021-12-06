@@ -26,17 +26,18 @@ export default function Chat() {
       ]);
     }, 200);
   };
-  console.log(history);
   let chatMessagesHistory = history.map((elem, i) => {
     return i % 2 === 0 ? (
-      <div className="bot">
+      <div className="bot" key={i}>
         <div className="bot-avatar">
           <img src={ava} alt={"bot"} width="40px" />
         </div>
         <div className="bot-message">{elem.message}</div>
       </div>
     ) : (
-      <div className="user">{elem.message}</div>
+      <div key={i} className="user">
+        {elem.message}
+      </div>
     );
   });
   return (
@@ -49,7 +50,7 @@ export default function Chat() {
       </div>
       <div className="chat-main">{chatMessagesHistory.reverse()}</div>
       <div className="chat-input">
-        <form onSubmit={changepost}>
+        <form className="chat-form-container" onSubmit={changepost}>
           <div>
             <textarea
               className="chat-textarea"
@@ -58,7 +59,7 @@ export default function Chat() {
               onChange={(e) => setPostM(e.target.value)}
             />
           </div>
-          <div>
+          <div className="chat-btn-container">
             <button type="submit" className="chat-btn" onClick={changepost}>
               {"->"}
             </button>

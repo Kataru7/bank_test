@@ -1,8 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import "./ResultPersonal.css";
-import { addDoc, collection, doc, getDoc, getDocs } from "firebase/firestore";
+import { addDoc, collection } from "firebase/firestore";
 import { db } from "../Firebase/firebase-config";
+import { PopUp } from "./ElementsPages/index";
 
 function ResultPersonal() {
   const user = useSelector((state) => state);
@@ -17,14 +18,6 @@ function ResultPersonal() {
       console.error("Error adding document: ", e);
     }
   };
-
-  const getData = async () => {
-    const querySnapshot = await getDocs(collection(db, "data_registration"));
-    console.log(querySnapshot);
-    querySnapshot.forEach((doc) => {
-      console.log(doc.data());
-    });
-  };
   return (
     <div className="personal-data-form-container">
       <div className="personal-data-form">
@@ -33,30 +26,28 @@ function ResultPersonal() {
         </div>
         <div className="table-container">
           <div className="table-info">
-            <div>Имя</div>
-            <div>Отчество</div>
-            <div>Дата рождения</div>
-            <div>Пол</div>
-            <div>Страна</div>
-            <div>Инфо</div>
+            <div className="table-output-info table-header">Имя</div>
+            <div className="table-output-info table-header">Отчество</div>
+            <div className="table-output-info table-header">Дата рождения</div>
+            <div className="table-output-info table-header">Пол</div>
+            <div className="table-output-info table-header">Страна</div>
+            <div className="table-output-info table-header">Инфо</div>
           </div>
           <div className="table-info">
-            <div>{user.name}</div>
-            <div>{user.lastName}</div>
-            <div>{user.birthday}</div>
-            <div>{user.gender}</div>
-            <div>{user.country}</div>
-            <div>
-              <a>Доп.инфо.</a>
+            <div className="table-output-info">{user.name}</div>
+            <div className="table-output-info">{user.lastName}</div>
+            <div className="table-output-info">{user.birthday}</div>
+            <div className="table-output-info">{user.gender}</div>
+            <div className="table-output-info">{user.country}</div>
+            <div className="table-output-info popUp">
+              <p className="popUp">Доп.инфо.</p>
+              {<PopUp user={user} />}
             </div>
           </div>
         </div>
         <div className="form-footer">
           <button className="submit-btn" onClick={dataTransfer}>
             Сохранить
-          </button>
-          <button className="submit-btn" onClick={getData}>
-            Загрузить
           </button>
         </div>
       </div>

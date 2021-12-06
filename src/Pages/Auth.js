@@ -18,42 +18,31 @@ export default function Auth() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const provider = new GoogleAuthProvider();
-  const user = auth.currentUser;
   let history = useHistory();
 
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      const uid = user.uid;
       history.push("/registration");
     } else {
+      history.push("/");
     }
   });
 
   const registerNewUser = () => {
-    createUserWithEmailAndPassword(auth, email, password).then(
-      (userCredential) => {
-        const user = userCredential.user;
-        dispatch(fetchSingIn(true));
-      }
-    );
+    createUserWithEmailAndPassword(auth, email, password).then(() => {
+      dispatch(fetchSingIn(true));
+    });
   };
 
   const registerInGoogle = () => {
     signInWithPopup(auth, provider).then((result) => {
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
-      const user = result.user;
       dispatch(fetchSingIn(true));
-      // ...
     });
   };
 
   const singInEmail = () => {
-    signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
+    signInWithEmailAndPassword(auth, email, password).then(() => {
       dispatch(fetchSingIn(true));
-      // ...
     });
   };
 
@@ -98,9 +87,9 @@ export default function Auth() {
             </button>
           </div>
           <div>
-            <a href="" className="registration-link" onClick={registerNewUser}>
+            <button className="registration-link" onClick={registerNewUser}>
               Регистрация
-            </a>
+            </button>
             <button type="button" onClick={registerInGoogle}>
               Регистрация Google
             </button>

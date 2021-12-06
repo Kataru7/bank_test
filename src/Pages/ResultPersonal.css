@@ -2,8 +2,20 @@
   display: flex;
   justify-content: center;
 }
-.table-info > div {
-  flex-basis: 15%;
+.table-output-info {
+  flex-basis: 13.5%;
   height: 30px;
-  border: 1px solid darkgrey;
+  border: 1px solid rgb(255, 224, 224);
+  cursor: pointer;
+  display: flex;
+  font-size: 14px;
+}
+.table-output-info.tr-element {
+  height: 43px;
+}
+.table-output-info.gender {
+  flex-basis: 11%;
+}
+.table-header {
+  font-size: 12px;
 }
