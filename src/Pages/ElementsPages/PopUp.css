@@ -10,6 +10,7 @@
   width: 250px;
   height: 300px;
   background-color: gray;
+  padding-top: 200px;
   z-index: 2;
   color: #fff;
   overflow: auto;
@@ -43,4 +44,6 @@
 }
 .popup-info {
   font-size: 16px;
+  margin-left: 5px;
+  width: 90%;
 }

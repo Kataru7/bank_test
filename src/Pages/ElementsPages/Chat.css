@@ -44,6 +44,12 @@
 .bot {
   display: flex;
 }
+.bot-avatar {
+  margin-top: 5px;
+}
+.bot-avatar > img {
+  border-radius: 50%;
+}
 .bot-message {
   width: 100%;
   border-radius: 10px;
@@ -66,7 +72,7 @@
   width: 230px;
   height: 55px;
   margin: 0;
-  padding: 0;
+  padding: 10px;
 }
 .chat-btn-container {
   display: flex;
@@ -77,6 +83,8 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  border: 1px solid darkgrey;
-  background-color: rgb(255, 238, 0);
+  border: 1px solid lightgray;
+  background-color: rgba(255, 238, 0, 0.719);
+  font-size: 16px;
+  color: rgba(128, 128, 128, 0.575);
 }

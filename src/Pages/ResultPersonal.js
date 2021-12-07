@@ -7,12 +7,12 @@ import { PopUp } from "./ElementsPages/index";
 
 function ResultPersonal() {
   const user = useSelector((state) => state);
+
   const dataTransfer = async () => {
     try {
       const docRef = await addDoc(collection(db, "data_registration"), {
         ...user,
       });
-
       console.log("Document written with ID: ", docRef.id);
     } catch (e) {
       console.error("Error adding document: ", e);

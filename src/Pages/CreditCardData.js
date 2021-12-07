@@ -84,22 +84,29 @@ export default function PersonalDataF() {
                 maxLength={3}
                 type="password"
                 name="cvc"
+                width={"cvc"}
                 label="CVC2 или CVV2:"
                 value={values.cvc}
                 typeMask={"cvc"}
+                helperText={"3 цифры"}
               />
-              <InputRadio
-                name="typeCard"
-                type="radio"
-                value="debet"
-                title="Дебетовая"
-              />
-              <InputRadio
-                name="typeCard"
-                type="radio"
-                value="credit"
-                title="Кредитная"
-              />
+              <div className="personal-card-info">
+                <p>Тип карты:</p>
+                <div>
+                  <InputRadio
+                    name="typeCard"
+                    type="radio"
+                    value="debet"
+                    title="Дебетовая"
+                  />
+                  <InputRadio
+                    name="typeCard"
+                    type="radio"
+                    value="credit"
+                    title="Кредитная"
+                  />
+                </div>
+              </div>
 
               <div className="form-footer">
                 <button

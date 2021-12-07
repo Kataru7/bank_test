@@ -38,19 +38,29 @@ export default function Routing() {
         <div className="nav-two">
           <ul className="nav-list-container">
             <li>
-              <NavLink to="/1">Пункт 1</NavLink>
+              <NavLink className="link one" to="/1">
+                Пункт 1
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/2">Пункт 2</NavLink>
+              <NavLink className="link two" to="/2">
+                Пункт 2
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/3">Пункт 3</NavLink>
+              <NavLink className="link three" to="/3">
+                Пункт 3
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/registration">Пункт 4</NavLink>
+              <NavLink className="link four" to="/registration">
+                Пункт 4
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/4">Пункт 5</NavLink>
+              <NavLink className="link five" to="/5">
+                Пункт 5
+              </NavLink>
             </li>
             {userSingIn ? (
               <li>
@@ -69,6 +79,9 @@ export default function Routing() {
         </Route>
         <Route exact path="/3">
           <Page3 />
+        </Route>
+        <Route exact path="/5">
+          <Page5 />
         </Route>
 
         <Route exact path="/registration">
@@ -94,10 +107,6 @@ export default function Routing() {
             </>
           </React.Fragment>
         </div>
-
-        <Route exact path="/5">
-          <Page5 />
-        </Route>
       </Switch>
       <div className="footer">
         <Footer />

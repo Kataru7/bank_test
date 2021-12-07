@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../Firebase/firebase-config";
@@ -11,6 +11,25 @@ function ResultList() {
   let history = useHistory();
   const dispatch = useDispatch();
   const users = useSelector((state) => state.users);
+
+  const [arr, setArr] = useState(users);
+
+  const sortData = (e) => {
+    const choiceEvent = {
+      Имя: "name",
+      Фамилия: "lastName",
+      Отчество: "patronymic",
+      "Дата рождения": "birthday",
+      Пол: "gender",
+      Страна: "country",
+    };
+    let eventTarget = choiceEvent[e.target.innerHTML];
+    const obj = [...arr];
+    const sortArr = obj.sort((a, b) =>
+      a[eventTarget] > b[eventTarget] ? 1 : -1
+    );
+    setArr(sortArr);
+  };
   const dataTransfer = async () => {
     try {
       const querySnapshot = await getDocs(collection(db, "data_registration"));
@@ -32,27 +51,47 @@ function ResultList() {
       <div className="personal-data-form">
         <div className="table-container">
           <div className="table-info">
-            <div className="table-data table-output-info table-header">Имя</div>
-            <div className="table-data table-output-info table-header">
+            <div
+              className="table-data table-output-info table-header"
+              onClick={(e) => sortData(e)}
+            >
+              Имя
+            </div>
+            <div
+              className="table-data table-output-info table-header"
+              onClick={(e) => sortData(e)}
+            >
               Фамилия
             </div>
-            <div className="table-data table-output-info table-header">
+            <div
+              className="table-data table-output-info table-header"
+              onClick={(e) => sortData(e)}
+            >
               Отчество
             </div>
-            <div className="table-data table-output-info table-header">
+            <div
+              className="table-data table-output-info table-header"
+              onClick={(e) => sortData(e)}
+            >
               Дата рождения
             </div>
-            <div className="table-data table-output-info table-header gender">
+            <div
+              className="table-data table-output-info table-header gender"
+              onClick={(e) => sortData(e)}
+            >
               Пол
             </div>
-            <div className="table-data table-output-info table-header">
+            <div
+              className="table-data table-output-info table-header"
+              onClick={(e) => sortData(e)}
+            >
               Страна
             </div>
             <div className="table-data table-output-info table-header">
               Инфо
             </div>
           </div>
-          {users.map((el, id) => {
+          {arr.map((el, id) => {
             return (
               <div key={id} className="table-info">
                 <div className="table-data table-output-info tr-element">
@@ -74,7 +113,10 @@ function ResultList() {
                   {el.country}
                 </div>
                 <div className="table-data table-output-info tr-element">
-                  <p className="btn-change" onClick={() => changeDataUser(id)}>
+                  <p
+                    className="btn-change"
+                    onClick={() => changeDataUser(el.id)}
+                  >
                     Править
                   </p>
                 </div>

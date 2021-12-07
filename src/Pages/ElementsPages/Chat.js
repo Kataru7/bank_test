@@ -18,13 +18,11 @@ export default function Chat() {
     e.preventDefault();
     setHistory((prev) => [...prev, { message: post }]);
     setPostM("");
-    setTimeout(() => {
-      setHistory((prev) => [
-        ...prev,
+    setHistory((prev) => [
+      ...prev,
 
-        { message: randomPost[Math.floor(Math.random() * 5)] },
-      ]);
-    }, 200);
+      { message: randomPost[Math.floor(Math.random() * 5)] },
+    ]);
   };
   let chatMessagesHistory = history.map((elem, i) => {
     return i % 2 === 0 ? (
@@ -43,7 +41,7 @@ export default function Chat() {
   return (
     <div className="chat">
       <div className="chat-header">
-        <div>
+        <div className="bot-avatar">
           <img src={ava} alt={"bot"} width="40px" />
         </div>
         <div>Анна в чате</div>
@@ -53,6 +51,7 @@ export default function Chat() {
         <form className="chat-form-container" onSubmit={changepost}>
           <div>
             <textarea
+              placeholder="Ваше сообщение..."
               className="chat-textarea"
               name="text"
               value={post}
@@ -61,7 +60,7 @@ export default function Chat() {
           </div>
           <div className="chat-btn-container">
             <button type="submit" className="chat-btn" onClick={changepost}>
-              {"->"}
+              {"➜"}
             </button>
           </div>
         </form>

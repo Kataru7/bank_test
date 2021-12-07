@@ -10,6 +10,9 @@ export default function Input({
   maxLength,
   component,
   typeMask,
+  helperText,
+  width,
+  typeTel,
   ...props
 }) {
   const [field, meta] = useField(props);
@@ -20,8 +23,6 @@ export default function Input({
         return "+999 99 999 99 99";
       case "cardNumber":
         return "9999 9999 9999 9999";
-      case "date":
-        return "99/99/9999";
       case "monthYear":
         return "99/99";
       case "cvc":
@@ -33,25 +34,25 @@ export default function Input({
   return (
     <div className={`form-input ${nameClass}`}>
       <label className="field-box__title">{label}</label>
-      <div className="field-box__title_container">
+      <div className={`field-box__title_container ${width}`}>
         <InputMask
           mask={createMask(typeMask)}
           maskChar={""}
           component={component}
           className={
             meta.touched && meta.error
-              ? "field-box__input  field-box__field field-box__input-error"
-              : "field-box__input  field-box__field"
+              ? `field-box__input ${typeTel} field-box__field field-box__input-error`
+              : `field-box__input ${typeTel} field-box__field`
           }
           type={type}
           {...field}
-          maxLength={maxLength}
           helpertext={errorText}
         />
         {meta.touched && meta.error && (
           <p className="field-box__error-text">{meta.error}</p>
         )}
       </div>
+      <p className="info-text">{helperText}</p>
     </div>
   );
 }

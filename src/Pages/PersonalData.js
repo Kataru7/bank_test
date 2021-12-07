@@ -20,10 +20,17 @@ export default function PersonalDataF() {
   const newUsers = users.filter((item) => item.id !== user.id);
 
   const validationSchema = yup.object().shape({
-    name: yup.string().required("Заполните это поле"),
+    name: yup
+      .string()
+      .required("Заполните это поле")
+      .matches(/^[a-zA-Z ]+$/, "Допустимы только буквы"),
     lastName: yup.string().required("Заполните это поле"),
     patronymic: yup.string().required("Заполните это поле"),
-    birthday: yup.string().required("Заполните это поле"),
+    birthday: yup
+      .date()
+      .required("Заполните это поле")
+      .max(new Date(2004, 1, 1), "Вы слишком молоды")
+      .min(new Date(1921, 1, 1), "Дата недопустима"),
     adress: yup.string().required("Заполните это поле"),
     motherMaidenName: yup.string().required("Заполните это поле"),
     codeWord: yup.string().required("Заполните это поле"),
@@ -134,11 +141,12 @@ export default function PersonalDataF() {
                 />
                 <Input
                   nameClass="data-birthday"
-                  type="text"
+                  type="date"
                   name="birthday"
                   label="Дата рождения:"
                   value={values.birthday}
                   typeMask={"date"}
+                  width="date"
                 />
                 <InputSelect
                   name="gender"
@@ -157,6 +165,7 @@ export default function PersonalDataF() {
                   name="adress"
                   label="Адрес:"
                   value={values.adress}
+                  helperText={"Узнать индекс"}
                 />
                 <Input
                   type="text"
@@ -180,6 +189,7 @@ export default function PersonalDataF() {
                   cols="30"
                   value={values.aboutUs}
                   as="textarea"
+                  helperText={"Из газеты, телевидения,радио или проч."}
                 />
                 <Input
                   type="email"
@@ -212,6 +222,7 @@ export default function PersonalDataF() {
                       label="Номер телефона своего парня:"
                       value={values.telBoyfriend}
                       typeMask={"tel"}
+                      typeTel={"other"}
                     />
                     <InputSelect
                       name="pan"
