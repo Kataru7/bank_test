@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import fetchData from "../Redux/action";
 import actionEdit from "../Redux/actionEdit";
 import { useSelector } from "react-redux";
+import CustomSelect from "./ElementsPages/CustomSelect";
 
 export default function PersonalDataF() {
   const dispatch = useDispatch();
@@ -153,6 +154,12 @@ export default function PersonalDataF() {
                   label="Пол:"
                   value={values.gender}
                   options={genderSelect}
+                />
+                <CustomSelect
+                  name="gender"
+                  label="Пол:"
+                  value={values.gender}
+                  options={["Male", "Female", "Other"]}
                 />
                 <InputSelect
                   name="country"
