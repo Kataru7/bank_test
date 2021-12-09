@@ -1,13 +1,16 @@
 import React from "react";
+import "./Footer.css";
 
 export default function Footer() {
   return (
     <>
-      <span className="one">© 2016 Городской сайт</span>
-      <span className="two">Пользовательское соглашение</span>
-      <span className="three">Инструкции</span>
-      <span className="four">Рекламодателям</span>
-      <span className="five">Сделано в Беларуси</span>
+      <div className="footer-element label">© 2016 Городской сайт</div>
+      <div className="footer-link-container">
+        <div className="footer-element">Пользовательское соглашение</div>
+        <div className="footer-element">Инструкции</div>
+        <div className="footer-element">Рекламодателям</div>
+      </div>
+      <div className="footer-element made">Сделано в Беларуси</div>
     </>
   );
 }

@@ -23,10 +23,11 @@ body {
 }
 
 .container {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   max-width: 1366px;
+  height: 100vh;
   margin: 0 auto;
 }
 
@@ -37,48 +38,63 @@ body {
   text-align: center;
   border-bottom: 2px solid #19cbac;
 }
-.nav li {
+
+.nav-link {
   list-style-type: none;
-  padding: 0 40px 0 0;
-  z-index: 999;
+  height: 80px;
+  min-width: 100px;
+  margin-right: 4px;
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+  position: relative;
+}
+
+.link:hover {
+  color: #19cbac;
 }
 
 .nav-one {
   display: flex;
   align-items: center;
-  flex-basis: 27.5%;
+  min-width: 375px;
   height: 80px;
   font-size: 29px;
   background: linear-gradient(121deg, #19cbac 320px, hsl(0, 23%, 95%) 20px);
-  padding: 0 0 0 75px;
+  padding: 0 0 0 35px;
   color: white;
+  z-index: -2;
 }
-.nav-two {
-  display: flex;
-  flex-basis: 49%;
-  justify-content: space-between;
-  padding: 7px 0 0 0;
+.nav-one > p {
+  font-weight: 600;
+  letter-spacing: 0.02rem;
+}
+.userSingIn {
   margin-left: -20px;
+  margin-right: 20px;
 }
-.nav li * {
-  color: black;
-  font-weight: 300;
+.choice-registration {
+}
+
+.nav-two {
+  padding-left: 15px;
 }
 li .active {
   color: white;
 }
-.active::after {
+
+.active::before {
   background: #19cbac;
   content: "";
   display: block;
   position: absolute;
-  width: 80px;
+  width: 78px;
   height: 17px;
   padding: 8px;
-  left: -16px;
-  top: -8px;
-  z-index: -1;
+  left: -14px;
+  top: 27px;
   transform: skew(-32deg, 0deg);
+  z-index: -1;
 }
 
 .nav-list-container {
@@ -88,21 +104,8 @@ li .active {
 .link {
   text-decoration: none;
   font-size: 1.1rem;
-  font-weight: 600;
   height: 25px;
-  position: relative;
-}
-.link.two {
-  padding: 0 0 0 5px;
-}
-.link.three {
-  margin-left: -5px;
-}
-.link.four {
-}
-.link.five {
-  margin-left: -5px;
-  padding: 0 0 0 1px;
+  color: black;
 }
 
 .activeClassName {
@@ -119,49 +122,16 @@ li .active {
   height: 340px;
 }
 
-.footer {
-  display: flex;
-  justify-content: space-around;
-  margin-top: auto;
-  height: 80px;
-}
-.footer > span {
-  border-top: 1px solid gray;
-  display: flex;
-  height: 100%;
-  font-size: 14px;
-  justify-content: center;
-  align-items: center;
-}
-.one {
-  flex-basis: 20%;
-  height: 100%;
-  padding: 0 0 2px 35px;
-}
-.two {
-  flex-basis: 17%;
-  letter-spacing: 0.03rem;
-  padding: 0 0 3px 0;
-}
-.three {
-  flex-basis: 8%;
-  letter-spacing: 0.05rem;
-  padding: 0 0 2px 3px;
-}
-.four {
-  flex-basis: 10%;
-  padding: 0 0 2px 2px;
-  letter-spacing: 0.02rem;
-}
-.five {
-  flex-basis: 45%;
-  padding: 0 0 3px 319px;
-  letter-spacing: 0.02rem;
-}
-.wrapper-registrations {
+.not-chat {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  align-items: stretch;
+  width: 100%;
+}
+
+.wrapper-registrations {
+  display: flex;
+  justify-content: space-between;
   margin: 35px auto;
   width: 1204px;
   height: 735px;

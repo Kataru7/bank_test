@@ -7,7 +7,6 @@
 }
 .personal-data-form-container {
   position: relative;
-  width: 73.5%;
   box-shadow: 0px 5px 4px 3px rgba(34, 60, 80, 0.1);
 }
 .data-form {
@@ -65,7 +64,7 @@
 .form-footer {
   position: absolute;
   background-color: #fff;
-  width: 885px;
+  width: inherit;
   height: 80px;
   top: 488px;
   left: 0;
@@ -95,7 +94,7 @@
 .table-data {
   display: flex;
   align-items: center;
-  padding-left: 20px;
+  justify-content: center;
 }
 .personal-card-info {
   padding-top: 18px;

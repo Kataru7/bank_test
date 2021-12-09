@@ -73,7 +73,7 @@ export default function Auth() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <div>
+        <div className="auth-btn-container">
           <div className="btns-sing">
             <button
               type="button"

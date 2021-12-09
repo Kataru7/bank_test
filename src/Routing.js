@@ -34,39 +34,41 @@ export default function Routing() {
   return (
     <div className="container">
       <div className="nav">
-        <h1 className="nav-one">Городской сайт</h1>
+        <div className="nav-one">
+          {userSingIn ? (
+            <button className="userSingIn" onClick={singOutUser}>
+              Выход
+            </button>
+          ) : null}
+          <p>Городской сайт</p>{" "}
+        </div>
         <div className="nav-two">
           <ul className="nav-list-container">
-            <li>
+            <li className="nav-link">
               <NavLink className="link one" to="/1">
                 Пункт 1
               </NavLink>
             </li>
-            <li>
+            <li className="nav-link">
               <NavLink className="link two" to="/2">
                 Пункт 2
               </NavLink>
             </li>
-            <li>
+            <li className="nav-link">
               <NavLink className="link three" to="/3">
                 Пункт 3
               </NavLink>
             </li>
-            <li>
+            <li className="nav-link">
               <NavLink className="link four" to="/registration">
                 Пункт 4
               </NavLink>
             </li>
-            <li>
+            <li className="nav-link">
               <NavLink className="link five" to="/5">
                 Пункт 5
               </NavLink>
             </li>
-            {userSingIn ? (
-              <li>
-                <button onClick={singOutUser}>Выход</button>
-              </li>
-            ) : null}
           </ul>
         </div>
       </div>
@@ -89,22 +91,23 @@ export default function Routing() {
         </Route>
         <div className="wrapper-registrations">
           <React.Fragment>
-            <MainForm />
-            <Route exact path="/registration/personal">
-              <PersonalData />
-            </Route>
-            <Route exact path="/registration/card">
-              <CreditCardData />
-            </Route>
-            <Route exact path="/registration/personal-result">
-              <ResultPersonal />
-            </Route>
-            <Route exact path="/registration/list-result">
-              <ResultList />
-            </Route>
-            <>
-              <Chat />
-            </>
+            <div className="not-chat">
+              <MainForm />
+
+              <Route exact path="/registration/personal">
+                <PersonalData />
+              </Route>
+              <Route exact path="/registration/card">
+                <CreditCardData />
+              </Route>
+              <Route exact path="/registration/personal-result">
+                <ResultPersonal />
+              </Route>
+              <Route exact path="/registration/list-result">
+                <ResultList />
+              </Route>
+            </div>
+            <Chat />
           </React.Fragment>
         </div>
       </Switch>

@@ -1,4 +1,34 @@
-.footer-content {
+.footer {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  margin-top: auto;
+  height: 80px;
+  border-top: 1px solid lightgray;
+}
+.footer-element {
+  display: flex;
+  height: 100%;
+  font-size: 14px;
+  align-items: center;
+}
+.footer-element.label {
+  flex-basis: 15%;
+  margin-left: 25px;
+  justify-content: flex-end;
+}
+.footer-element.made {
+  flex-basis: 15%;
+  margin-right: 10px;
+  justify-content: flex-start;
+}
+.footer-link-container {
+  display: flex;
+  justify-content: flex-start;
+  flex-basis: 65%;
+}
+.footer-link-container > div {
+  margin-left: 35px;
+}
+.footer-element:last-child {
+  margin-right: 35px;
 }

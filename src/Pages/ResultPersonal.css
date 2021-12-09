@@ -3,18 +3,15 @@
   justify-content: center;
 }
 .table-output-info {
-  flex-basis: 13.5%;
+  width: 82px;
   height: 30px;
   border: 1px solid rgb(255, 224, 224);
   cursor: pointer;
   display: flex;
-  font-size: 14px;
+  font-size: 12px;
 }
 .table-output-info.tr-element {
   height: 43px;
-}
-.table-output-info.gender {
-  flex-basis: 11%;
 }
 .table-header {
   font-size: 12px;
