@@ -13,6 +13,7 @@ export default function Input({
   helperText,
   width,
   typeTel,
+  autoComplete,
   ...props
 }) {
   const [field, meta] = useField(props);
@@ -36,6 +37,7 @@ export default function Input({
       <label className="field-box__title">{label}</label>
       <div className={`field-box__title_container ${width}`}>
         <InputMask
+          autoComplete={autoComplete}
           mask={createMask(typeMask)}
           maskChar={""}
           component={component}

@@ -13,7 +13,7 @@ function ResultPersonal() {
       const docRef = await addDoc(collection(db, "data_registration"), {
         ...user,
       });
-      console.log("Document written with ID: ", docRef.id);
+      // console.log("Document written with ID: ", docRef.id);
     } catch (e) {
       console.error("Error adding document: ", e);
     }
@@ -22,22 +22,24 @@ function ResultPersonal() {
     <div className="personal-data-form-container">
       <div className="personal-data-form">
         <div>
-          <h4>ЛИЧНЫЕ ДАННЫЕ</h4>
+          <h4 className="personal-data-header">ЛИЧНЫЕ ДАННЫЕ</h4>
         </div>
         <div className="table-container">
           <div className="table-info">
             <div className="table-output-info table-header">Имя</div>
+            <div className="table-output-info table-header">Фамилия</div>
             <div className="table-output-info table-header">Отчество</div>
             <div className="table-output-info table-header">Дата рождения</div>
-            <div className="table-output-info table-header">Пол</div>
+            <div className="table-output-info table-header gender">Пол</div>
             <div className="table-output-info table-header">Страна</div>
             <div className="table-output-info table-header">Инфо</div>
           </div>
           <div className="table-info">
             <div className="table-output-info">{user.name}</div>
+            <div className="table-output-info">{user.patronymic}</div>
             <div className="table-output-info">{user.lastName}</div>
             <div className="table-output-info">{user.birthday}</div>
-            <div className="table-output-info">{user.gender}</div>
+            <div className="table-output-info gender">{user.gender}</div>
             <div className="table-output-info">{user.country}</div>
             <div className="table-output-info popUp">
               <p className="popUp">Доп.инфо.</p>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Formik, Form } from "formik";
+import { Field, Formik, Form } from "formik";
 import "./PersonalData.css";
 import { Input, InputSelect } from "./ElementsPages/index";
 import * as yup from "yup";
@@ -9,6 +9,7 @@ import fetchData from "../Redux/action";
 import actionEdit from "../Redux/actionEdit";
 import { useSelector } from "react-redux";
 import CustomSelect from "./ElementsPages/CustomSelect";
+import { logDOM } from "@testing-library/react";
 
 export default function PersonalDataF() {
   const dispatch = useDispatch();
@@ -37,28 +38,17 @@ export default function PersonalDataF() {
     codeWord: yup.string().required("Заполните это поле"),
     friendEmail: yup.string().email().required("Заполните это поле"),
   });
-  const genderSelect = [
-    { value: { select: "Муж", titleSelect: "Муж" } },
-    { value: { select: "Жен", titleSelect: "Жен" } },
-  ];
-  const countrySelect = [
-    { value: { select: "Беларусь", titleSelect: "Беларусь" } },
-    { value: { select: "Россия", titleSelect: "Россия" } },
-    { value: { select: "Украина", titleSelect: "Украина" } },
-  ];
+  const genderSelect = ["Муж", "Жен"];
+  const countrySelect = ["Беларусь", "Россия", "Украина", "Другая..."];
   const footbalSelect = [
-    { value: { select: "Barselona", titleSelect: "Барселона" } },
-    { value: { select: "Real-Madrid", titleSelect: "Реал-Мадрид" } },
-    { value: { select: "Marsel", titleSelect: "Марсель" } },
-    { value: { select: "Manchester", titleSelect: "Манчестер" } },
-    { value: { select: "Juventus", titleSelect: "Ювентус" } },
-    { value: { select: "Liverpul", titleSelect: "Ливерпуль" } },
+    "Барселона",
+    "Реал-Мадрид",
+    "Марсель",
+    "Манчестер",
+    "Ювентус",
+    "Ливерпуль",
   ];
-  const panSelect = [
-    { value: { select: "Tefal", titleSelect: "Tefal" } },
-    { value: { select: "Rondel", titleSelect: "Rondel" } },
-    { value: { select: "Alesia", titleSelect: "Алеся" } },
-  ];
+  const panSelect = ["Tefal", "Rondel", "Alesia"];
 
   return (
     <>
@@ -116,7 +106,7 @@ export default function PersonalDataF() {
           }}
           validationSchema={validationSchema}
         >
-          {({ values, isSubmitting }) => (
+          {({ values, isSubmitting, setFieldValue }) => (
             <div className="personal-data-form">
               <Form className="data-form">
                 <div className="data-form-title">
@@ -149,19 +139,29 @@ export default function PersonalDataF() {
                   typeMask={"date"}
                   width="date"
                 />
-                <InputSelect
+                {/* <InputSelect
+                  name="gender"
+                  label="Пол:"
+                  value={values.gender}
+                  options={genderSelect}
+                /> */}
+                <Field
+                  setFieldValue={setFieldValue}
+                  as={CustomSelect}
                   name="gender"
                   label="Пол:"
                   value={values.gender}
                   options={genderSelect}
                 />
-                <CustomSelect
-                  name="gender"
-                  label="Пол:"
-                  value={values.gender}
-                  options={["Male", "Female", "Other"]}
-                />
-                <InputSelect
+                {/* <InputSelect
+                  name="country"
+                  label="Страна проживания:"
+                  value={values.country}
+                  options={countrySelect}
+                /> */}
+                <Field
+                  setFieldValue={setFieldValue}
+                  as={CustomSelect}
                   name="country"
                   label="Страна проживания:"
                   value={values.country}
@@ -214,7 +214,15 @@ export default function PersonalDataF() {
                       value={values.telGirlfriend}
                       typeMask={"tel"}
                     />
-                    <InputSelect
+                    {/* <InputSelect
+                      name="footbal"
+                      label="За какую футбольную команду болеешь:"
+                      value={values.footbal}
+                      options={footbalSelect}
+                    /> */}
+                    <Field
+                      setFieldValue={setFieldValue}
+                      as={CustomSelect}
                       name="footbal"
                       label="За какую футбольную команду болеешь:"
                       value={values.footbal}
@@ -229,14 +237,23 @@ export default function PersonalDataF() {
                       label="Номер телефона своего парня:"
                       value={values.telBoyfriend}
                       typeMask={"tel"}
-                      typeTel={"other"}
+                      autoComplete={"off"}
                     />
-                    <InputSelect
+                    {/* <InputSelect
                       name="pan"
                       label="Какую сковороду предпочитаешь:"
                       value={values.pan}
                       options={panSelect}
                       telType={values.telBoyfriend}
+                    /> */}
+                    <Field
+                      setFieldValue={setFieldValue}
+                      as={CustomSelect}
+                      name="pan"
+                      label="Какую сковороду предпочитаешь:"
+                      value={values.pan}
+                      options={panSelect}
+                      typeTel={values.telBoyfriend}
                     />
                   </>
                 )}

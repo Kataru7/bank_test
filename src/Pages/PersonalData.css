@@ -64,7 +64,7 @@
 .form-footer {
   position: absolute;
   background-color: #fff;
-  width: inherit;
+  width: 884px;
   height: 80px;
   top: 488px;
   left: 0;
@@ -84,6 +84,16 @@
   border-bottom: 2px solid #13a088;
   font-size: 18px;
   color: #ffff;
+  cursor: pointer;
+}
+.submit-btn:hover {
+  background: rgb(19, 160, 136);
+  background: linear-gradient(
+    0deg,
+    rgba(19, 160, 136, 0.7679446778711485) 0%,
+    rgba(28, 148, 128, 1) 37%
+  );
+  border-bottom: 2px solid #13a088;
 }
 
 .btn-change {

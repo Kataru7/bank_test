@@ -68,6 +68,12 @@
   width: 100%;
   z-index: 1000;
 }
+.options.options-w-top-pan {
+  transform: translate(0, -130%);
+}
+.options.options-w-top-footbal {
+  transform: translate(0, -115%);
+}
 
 .form-input-select .options.open {
   display: block;
@@ -85,4 +91,9 @@
 .form-input-select .option:hover {
   background-color: #f2f9fc;
   color: #333;
+}
+
+.selected-value:disabled {
+  background: rgba(211, 211, 211, 0.295);
+  pointer-events: none;
 }

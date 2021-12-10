@@ -5,8 +5,8 @@ export default function Input({ label, options, telType, ...props }) {
   const [field, meta] = useField(props);
   const errorText = meta.error && meta.touched ? meta.error : "";
   const option = options.map((el, key) => (
-    <option key={key} value={el.value.select}>
-      {el.value.titleSelect}
+    <option key={key} value={el}>
+      {el}
     </option>
   ));
 

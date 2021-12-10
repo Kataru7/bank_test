@@ -5,8 +5,6 @@ function Result() {
   const user = useSelector((state) => state);
   const users = useSelector((state) => state.users);
 
-  console.log(user);
-  console.log(users);
   return (
     <div>
       <div>{user.name}</div>

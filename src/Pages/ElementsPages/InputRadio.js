@@ -4,6 +4,7 @@ import "./InputRadio.css";
 
 export default function InputRadio({ title, ...props }) {
   const [field] = useField(props);
+
   return (
     <div className="radio">
       <label className="field-box__radio-label">
