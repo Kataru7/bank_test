@@ -1,0 +1,33 @@
+.table-info {
+  display: flex;
+  justify-content: center;
+}
+.table-output-info {
+  width: 82px;
+  height: 30px;
+  border: 1px solid rgb(255, 224, 224);
+  cursor: pointer;
+  display: flex;
+  font-size: 12px;
+}
+.table-output-info.tr-element {
+  height: 43px;
+}
+.table-header {
+  font-size: 12px;
+}
+.table-output-info {
+  padding-left: 5px;
+  width: 110px;
+  height: 32px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+.table-container {
+  margin-top: 20px;
+}
+.personal-data-header {
+  font-size: 14px;
+  margin: 35px 0 0 52px;
+}

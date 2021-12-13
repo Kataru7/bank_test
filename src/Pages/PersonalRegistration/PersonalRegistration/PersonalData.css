@@ -1,0 +1,152 @@
+.personal-data-form {
+  flex-direction: column;
+  display: flex;
+  overflow: auto;
+  height: 488px;
+  background-color: #fff;
+}
+.personal-data-form-container {
+  position: relative;
+  box-shadow: 0px 5px 4px 3px rgba(34, 60, 80, 0.1);
+}
+.data-form {
+  padding-left: 53px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.form-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  margin-top: 4px;
+}
+
+.data-form-title {
+  display: flex;
+  height: 50px;
+  align-items: flex-end;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+.field-box__input {
+  width: 75.1%;
+  height: 28px;
+  padding-left: 10px;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  box-shadow: 0px 2px 4px 2px rgba(42, 46, 48, 0.096) inset;
+}
+.field-box__input-error {
+  border: 1px solid red;
+  border-radius: 2px;
+}
+.text-aria {
+  height: 150px;
+}
+.data-birthday > .field-box__input {
+  width: 20%;
+  height: 27px;
+}
+.text-aria > .field-box__input {
+  height: 140px;
+}
+.field-box__input.select {
+  width: 20%;
+  height: 27px;
+}
+.data-form > div > label {
+  width: 270px;
+  font-size: 15px;
+}
+
+.form-footer {
+  position: absolute;
+  background-color: #fff;
+  width: 884px;
+  height: 80px;
+  top: 488px;
+  left: 0;
+  border-top: 1px solid lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 5px 4px 3px rgba(34, 60, 80, 0.1);
+}
+.submit-btn {
+  border: none;
+  margin-right: 115px;
+  width: 125px;
+  height: 45px;
+  border-radius: 5px;
+  background-color: #19cbac;
+  border-bottom: 2px solid #13a088;
+  font-size: 18px;
+  color: #ffff;
+  cursor: pointer;
+}
+.submit-btn:hover {
+  background: rgb(19, 160, 136);
+  background: linear-gradient(
+    0deg,
+    rgba(19, 160, 136, 0.7679446778711485) 0%,
+    rgba(28, 148, 128, 1) 37%
+  );
+  border-bottom: 2px solid #13a088;
+}
+
+.btn-change {
+  color: #19cbac;
+  font-size: 14px;
+  cursor: pointer;
+}
+.table-data {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.personal-card-info {
+  padding-top: 18px;
+  display: flex;
+}
+.personal-card-info > p {
+  margin-right: 195px;
+}
+.personal-card-info > div {
+  display: flex;
+  justify-content: space-between;
+  width: 220px;
+}
+.field-box__title_container.cvc {
+  width: 100px;
+  padding-left: 0;
+}
+.info-text {
+  font-size: 10px;
+  position: absolute;
+  right: 30px;
+  width: 90px;
+}
+
+.field-box__title_container.date {
+  width: 218px;
+  padding-left: 0;
+}
+.field-box__input.other {
+  width: 177px;
+  margin-right: 235px;
+  padding-left: 40px;
+}
+.field-box__input.other::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  /* background-image: url("../assets/bel-flag.png"); */
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

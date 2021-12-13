@@ -1,0 +1,51 @@
+.auth-container {
+  display: flex;
+  width: 420px;
+  min-height: 300px;
+  background-color: #fff;
+  margin: 0 auto;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-top: 200px;
+}
+
+.auth-form {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+}
+.auth-form > input {
+  height: 27px;
+}
+
+.auth-form-elem {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.auth-form-elem > input {
+  height: 35px;
+  border-radius: 5px;
+}
+.btns-sing {
+  display: flex;
+}
+
+.submit-btn.sing {
+  margin: 0 10px 10px 10px;
+}
+.registration-link {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  color: #19cbac;
+  margin-right: 10px;
+}
+.auth-btn-container {
+  align-items: center;
+}
