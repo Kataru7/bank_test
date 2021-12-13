@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { auth } from "../Firebase/firebase-config";
+import { auth } from "../../Firebase/firebase-config";
 import {
   signOut,
   signInWithPopup,
@@ -9,7 +9,7 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 import { useDispatch } from "react-redux";
-import fetchSingIn from "../Redux/actionSingIn";
+import fetchSingIn from "../../Redux/actionSingIn";
 import { useHistory } from "react-router-dom";
 import "./Auth.css";
 

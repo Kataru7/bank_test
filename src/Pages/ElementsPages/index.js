@@ -1,19 +1,8 @@
-import Header from "./Header";
-import MainContent from "./MainContent";
 import Footer from "./Footer";
-import Input from "./Input";
-import InputSelect from "./InputSelect";
-import InputRadio from "./InputRadio";
-import Chat from "./Chat";
-import PopUp from "./PopUp";
+import Input from "./CustomInputs/Input";
+import InputSelect from "./CustomInputs/InputSelect";
+import InputRadio from "./CustomInputs/InputRadio";
+import Chat from "./Chat/Chat";
+import PopUp from "./PopUpInfo/PopUp";
 
-export {
-  Header,
-  MainContent,
-  Footer,
-  Input,
-  InputSelect,
-  InputRadio,
-  Chat,
-  PopUp,
-};
+export { Footer, Input, InputSelect, InputRadio, Chat, PopUp };

@@ -1,13 +1,13 @@
 import React from "react";
 import { Formik, Form } from "formik";
 import { useHistory } from "react-router-dom";
-import { Input, InputRadio } from "./ElementsPages/index";
+import { Input, InputRadio } from "../../ElementsPages/index";
 import * as yup from "yup";
 import { useDispatch } from "react-redux";
-import fetchData from "../Redux/action";
+import fetchData from "../../../Redux/action";
 import { useSelector } from "react-redux";
-import actionEdit from "../Redux/actionEdit";
-import fetchDataMethod from "../Redux/actionChoice";
+import actionEdit from "../../../Redux/actionEdit";
+import fetchDataMethod from "../../../Redux/actionChoice";
 
 export default function PersonalDataF() {
   const isEdit = useSelector((state) => state.edit);

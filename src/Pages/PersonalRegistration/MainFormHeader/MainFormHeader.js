@@ -1,5 +1,5 @@
 import React from "react";
-import "./MainForm.css";
+import "./MainFormHeader.css";
 import { NavLink } from "react-router-dom";
 
 export default function MainForm() {

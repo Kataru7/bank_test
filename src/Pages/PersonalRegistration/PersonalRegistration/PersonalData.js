@@ -1,15 +1,14 @@
 import React from "react";
 import { Field, Formik, Form } from "formik";
 import "./PersonalData.css";
-import { Input, InputSelect } from "./ElementsPages/index";
+import { Input } from "../../ElementsPages/index";
 import * as yup from "yup";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import fetchData from "../Redux/action";
-import actionEdit from "../Redux/actionEdit";
+import fetchData from "../../../Redux/action";
+import actionEdit from "../../../Redux/actionEdit";
 import { useSelector } from "react-redux";
-import CustomSelect from "./ElementsPages/CustomSelect";
-import { logDOM } from "@testing-library/react";
+import CustomSelect from "../../ElementsPages/CustomInputs/CustomSelect";
 
 export default function PersonalDataF() {
   const dispatch = useDispatch();
@@ -139,12 +138,6 @@ export default function PersonalDataF() {
                   typeMask={"date"}
                   width="date"
                 />
-                {/* <InputSelect
-                  name="gender"
-                  label="Пол:"
-                  value={values.gender}
-                  options={genderSelect}
-                /> */}
                 <Field
                   setFieldValue={setFieldValue}
                   as={CustomSelect}
@@ -153,12 +146,6 @@ export default function PersonalDataF() {
                   value={values.gender}
                   options={genderSelect}
                 />
-                {/* <InputSelect
-                  name="country"
-                  label="Страна проживания:"
-                  value={values.country}
-                  options={countrySelect}
-                /> */}
                 <Field
                   setFieldValue={setFieldValue}
                   as={CustomSelect}
@@ -214,12 +201,6 @@ export default function PersonalDataF() {
                       value={values.telGirlfriend}
                       typeMask={"tel"}
                     />
-                    {/* <InputSelect
-                      name="footbal"
-                      label="За какую футбольную команду болеешь:"
-                      value={values.footbal}
-                      options={footbalSelect}
-                    /> */}
                     <Field
                       setFieldValue={setFieldValue}
                       as={CustomSelect}
@@ -239,13 +220,6 @@ export default function PersonalDataF() {
                       typeMask={"tel"}
                       autoComplete={"off"}
                     />
-                    {/* <InputSelect
-                      name="pan"
-                      label="Какую сковороду предпочитаешь:"
-                      value={values.pan}
-                      options={panSelect}
-                      telType={values.telBoyfriend}
-                    /> */}
                     <Field
                       setFieldValue={setFieldValue}
                       as={CustomSelect}

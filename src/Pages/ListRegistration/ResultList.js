@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { collection, getDocs } from "firebase/firestore";
-import { db } from "../Firebase/firebase-config";
+import { db } from "../../Firebase/firebase-config";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import actionEditId from "../Redux/actionEditId";
+import actionEditId from "../../Redux/actionEditId";
 import "./ResultList.css";
 
 function ResultList() {

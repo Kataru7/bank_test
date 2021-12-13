@@ -4,7 +4,7 @@ import "./Routing.css";
 import { Switch, Route, NavLink } from "react-router-dom";
 import {
   CreditCardData,
-  MainForm,
+  MainFormHeader,
   Page4,
   PersonalData,
   ResultPersonal,
@@ -92,7 +92,7 @@ export default function Routing() {
         <div className="wrapper-registrations">
           <React.Fragment>
             <div className="not-chat">
-              <MainForm />
+              <MainFormHeader />
 
               <Route exact path="/registration/personal">
                 <PersonalData />

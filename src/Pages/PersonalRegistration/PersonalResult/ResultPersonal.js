@@ -2,8 +2,8 @@ import React from "react";
 import { useSelector } from "react-redux";
 import "./ResultPersonal.css";
 import { addDoc, collection } from "firebase/firestore";
-import { db } from "../Firebase/firebase-config";
-import { PopUp } from "./ElementsPages/index";
+import { db } from "../../../Firebase/firebase-config";
+import { PopUp } from "../../ElementsPages/index";
 
 function ResultPersonal() {
   const user = useSelector((state) => state);
@@ -13,7 +13,6 @@ function ResultPersonal() {
       const docRef = await addDoc(collection(db, "data_registration"), {
         ...user,
       });
-      // console.log("Document written with ID: ", docRef.id);
     } catch (e) {
       console.error("Error adding document: ", e);
     }
